@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import Home from './Home/Home';
+import ListShoe from './List/ListShoe';
 class App extends Component {
 
 
@@ -22,7 +23,11 @@ class App extends Component {
             path={["/trang-chu", "/"]}
             component={Home}
           />
-
+          <Route
+            exact
+            path={["/danh-sach-giay"]}
+            component={ListShoe}
+          />
         </Switch>
         <Footer />
 
