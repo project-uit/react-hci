@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './ListShoe.css';
 import {
-    List, message, Avatar, Spin,
+    List, message, Avatar, Spin, Layout, Menu, Icon
 } from 'antd';
 import reqwest from 'reqwest';
 
 import InfiniteScroll from 'react-infinite-scroller';
-
+const {
+    Header, Content, Footer, Sider,
+} = Layout;
 const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
 class ListShoe extends Component {
@@ -69,9 +71,37 @@ class ListShoe extends Component {
         return (
             <div className="grid-container">
                 <div className="grid-filter">
-                   <div>
-                        filter
-                   </div>
+                    <div>
+                        <Sider
+                        theme="light"
+                            breakpoint="lg"
+                            collapsedWidth="0"
+                            onBreakpoint={(broken) => { console.log(broken); }}
+                            onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
+                        >
+                            <div>
+                                123
+                            </div>
+                            {/* <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+                                <Menu.Item key="1">
+                                    <Icon type="user" />
+                                    <span className="nav-text">nav 1</span>
+                                </Menu.Item>
+                                <Menu.Item key="2">
+                                    <Icon type="video-camera" />
+                                    <span className="nav-text">nav 2</span>
+                                </Menu.Item>
+                                <Menu.Item key="3">
+                                    <Icon type="upload" />
+                                    <span className="nav-text">nav 3</span>
+                                </Menu.Item>
+                                <Menu.Item key="4">
+                                    <Icon type="user" />
+                                    <span className="nav-text">nav 4</span>
+                                </Menu.Item>
+                            </Menu> */}
+                        </Sider>
+                    </div>
                 </div>
                 <div className="grid-list">
                     <InfiniteScroll

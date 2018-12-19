@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout, Menu, Breadcrumb, Icon, Input, Row, Col, Button, Modal, Badge, Affix } from "antd";
+import { Layout, Menu, Drawer, Icon, Input, Row, Col, Button, Modal, Badge, Affix } from "antd";
 import './HeaderStore.css';
 const Search = Input.Search;
 const SubMenu = Menu.SubMenu;
@@ -8,7 +8,9 @@ const MenuItemGroup = Menu.ItemGroup;
 class HeaderStore extends Component {
 
   state = {
-    isOpenModal: false
+    isOpenModal: false,
+    visible: false,
+    placement: 'right'
   }
   uagent = navigator.userAgent.toLowerCase();
   openLogin = () => {
@@ -21,6 +23,17 @@ class HeaderStore extends Component {
       isOpenModal: false
     })
   }
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
   render() {
     const header = (<Row className="fix-menu">
       <Col xs={19}>
@@ -72,8 +85,25 @@ class HeaderStore extends Component {
       </Col>
     </Row>
     )
-
-    const device = this.uagent.search("iphone") > -1 || this.uagent.search("android") > -1;
+    const headerSmallDevice = (
+      <div>
+        <Button type="primary" onClick={this.showDrawer} className="float-right">
+            oepn
+        </Button>
+        <Drawer
+          title="Basic Drawer"
+          placement={this.state.placement}
+          closable={false}
+          onClose={this.onClose}
+          visible={this.state.visible}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Drawer>
+      </div>
+    );
+    const device = this.uagent.search("iphone") > -1 || this.uagent.search("android") > -1 || this.uagent.search('ipad') > -1;
     console.log(device, this.uagent)
     return (
       <div>
@@ -94,7 +124,7 @@ class HeaderStore extends Component {
           </Col>
         </Row>
         {device && (
-          header
+          headerSmallDevice
         )}
         {!device && (
           <Affix offsetTop={0}>

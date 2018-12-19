@@ -17,7 +17,7 @@
   }
   .grid-filter{
     grid-area: filter;
-    background-color: #ecedef;
+    background-color: white;
   }
   .grid-list{
     grid-area: list;
