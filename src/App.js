@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import HeaderStore from "./Header/HeaderStore";
 import Footer from "./Footer/Footer";
+
 import {
   Route,
   Switch
@@ -9,6 +10,7 @@ import {
 
 import Home from './Home/Home';
 import ListShoe from './List/ListShoe';
+import ShoeDetails from './ShoeDetails/shoeDetails';
 class App extends Component {
 
 
@@ -27,7 +29,11 @@ class App extends Component {
             path={["/danh-sach-giay"]}
             component={ListShoe}
           />
-   
+          <Route
+            exact
+            path={["/chi-tiet-giay"]}
+            component={ShoeDetails}
+          />
         </Switch>
         <Footer />
 
