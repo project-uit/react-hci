@@ -26,7 +26,6 @@ class App extends Component {
             component={Home}
           />
           <Route
-            exact
             path={["/danh-sach-giay"]}
             component={ListShoe}
           />
