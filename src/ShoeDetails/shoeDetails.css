@@ -45,8 +45,8 @@
 }
 
 .under-slider{
-    margin-left: -5% !important;
-    margin-right: -5% !important; 
+    margin-left: -2% !important;
+    margin-right: -2% !important; 
 }
 
 .img-comment{
@@ -60,9 +60,11 @@
 }
 
 .right {
-    position: absolute;
-    right: 0px;
     padding: 10px;
-    margin-right: 30px;
-    margin-top: -30px; 
+  }
+
+  .comment{
+      border: 1px solid #EEEEEE;
+      margin-bottom: 5px;
+      border-radius: 5px;  
   }
