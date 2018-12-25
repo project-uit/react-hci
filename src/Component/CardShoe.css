@@ -1,5 +1,5 @@
 .text{
-    color: #7c795d; font-family: 'Trocchi', serif; font-size: 14px; font-weight: 700; line-height: 48px; margin: 0; 
+    color: #7c795d; font-family: 'Trocchi', serif; font-size: 14px; font-weight: 700; line-height: 40px; margin: 0; 
 }
 .effect:hover{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

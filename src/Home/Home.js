@@ -116,16 +116,16 @@ class Home extends Component {
                     <Col xs={20} sm={20} md={20} lg={20} offset={2} >
                         <Row className="p-1" gutter={16} >
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <CardShoe img="/Images/802799_01.jpg" company="Nike" name="AIR JORDAN 1 RETRO HIGH" money="$200" />
+                                <CardShoe img="/Images/802799_01.jpg" company="Nike" name="AIR JORDAN 1 RETRO HIGH" money="$200" gender="Nam"/>
                             </Col>
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <CardShoe img="/Images/805251_01.jpg" company="Converse" name="CHUCK 70 HI" money="$200" />
+                                <CardShoe img="/Images/805251_01.jpg" company="Converse" name="CHUCK 70 HI" money="$200" gender="Nam"/>
                             </Col>
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <CardShoe img="/Images/800345_1.jpg" company="Adidas" name="TUBULAR NOVA PK" money="$400" />
+                                <CardShoe img="/Images/800345_1.jpg" company="Adidas" name="TUBULAR NOVA PK" money="$400" gender="Nam"/>
                             </Col>
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <CardShoe img="/Images/805223_01.jpg" company="Nike" name="AIR JORDAN 1 MID SE" money="$350" />
+                                <CardShoe img="/Images/805223_01.jpg" company="Nike" name="AIR JORDAN 1 MID SE" money="$350" gender="Nam"/>
                             </Col>
                         </Row>
                     </Col>
