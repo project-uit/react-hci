@@ -39,28 +39,35 @@ class HeaderStore extends Component {
       <Col xs={19}>
         <Menu theme="dark" mode="horizontal" >
           <Menu.Item key="1"><span className="text-menu-color">Air Jordan</span></Menu.Item>
-          <Menu.Item key="2">
-            <span className="text-menu-color">Nike</span>
-          </Menu.Item>
-          <Menu.Item key="3"><span className="text-menu-color">Adidas</span></Menu.Item>
-          <Menu.Item key="4"><span className="text-menu-color">Converse</span></Menu.Item>
+          <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Nike</span></span>}>
+            <Menu.Item key="setting:3s">Jordan</Menu.Item>
+            <Menu.Item key="setting:3s">Tennis</Menu.Item>
+            <Menu.Item key="setting:3d">Traning</Menu.Item>
+            <Menu.Item key="setting:121">Football</Menu.Item>
+            <Menu.Item key="setting:22z">Cricket</Menu.Item>
+          </SubMenu>
+          <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Adidas</span></span>}>
+            <Menu.Item key="setting:1a">Football</Menu.Item>
+            <Menu.Item key="setting:2s">Running</Menu.Item>
+            <Menu.Item key="setting:3h">Basketball</Menu.Item>
+            <Menu.Item key="setting:3j">Originals</Menu.Item>
+          </SubMenu>
+          <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Converse</span></span>}>
+            <Menu.Item key="setting:1zs1">Classic</Menu.Item>
+            <Menu.Item key="setting:2xzx">Chuck 70s</Menu.Item>
+            <Menu.Item key="setting:3ccss">All star</Menu.Item>
+          </SubMenu>
           <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Yeezy</span></span>}>
-            <Menu.Item key="setting:1">Option 1</Menu.Item>
-            <Menu.Item key="setting:2">Option 2</Menu.Item>
-            <Menu.Item key="setting:3">Option 3</Menu.Item>
-            <Menu.Item key="setting:4">Option 4</Menu.Item>
+            <Menu.Item key="setting:1z">Yeezy boost 350</Menu.Item>
+            <Menu.Item key="setting:2x">Yeezy boost 700</Menu.Item>
+            <Menu.Item key="setting:3c">Yeezy boost 750</Menu.Item>
           </SubMenu>
-          <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Balenciaga</span></span>}>
-            <Menu.Item key="setting:5">Option 1</Menu.Item>
-            <Menu.Item key="setting:66">Option 2</Menu.Item>
-            <Menu.Item key="setting:7">Option 3</Menu.Item>
-            <Menu.Item key="setting:8">Option 4</Menu.Item>
-          </SubMenu>
+          <Menu.Item key="25"><span className="text-menu-color">Balenciaga</span></Menu.Item>
           <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Vans</span></span>}>
-            <Menu.Item key="setting:13">Option 1</Menu.Item>
-            <Menu.Item key="setting:12">Option 2</Menu.Item>
-            <Menu.Item key="setting:43">Option 3</Menu.Item>
-            <Menu.Item key="setting:a4">Option 4</Menu.Item>
+            <Menu.Item key="setting:13">Low top</Menu.Item>
+            <Menu.Item key="setting:12">High top</Menu.Item>
+            <Menu.Item key="setting:43">Slip-on</Menu.Item>
+            <Menu.Item key="setting:a4">Original Classic</Menu.Item>
           </SubMenu>
           <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Reebok</span></span>}>
             <Menu.Item key="settindg:1">Running</Menu.Item>
@@ -88,7 +95,7 @@ class HeaderStore extends Component {
     const headerSmallDevice = (
       <div>
         <Button type="primary" onClick={this.showDrawer} className="float-right">
-            oepn
+          oepn
         </Button>
         <Drawer
           title="Basic Drawer"

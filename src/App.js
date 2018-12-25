@@ -35,6 +35,7 @@ class App extends Component {
             component={ShoeDetails}
           />
         </Switch>
+      
         <Footer />
 
       </div >
