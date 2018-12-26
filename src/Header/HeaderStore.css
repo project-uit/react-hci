@@ -12,7 +12,12 @@
 .icon-size {
     font-size: 24px;
 }
-.fix-menu {
-    position: fixed;
-    z-index: 1;
-  }
+.ant-drawer-wrapper-body{
+    background-color: #001529;
+}
+.ant-drawer-header{
+    display: none;
+}
+.ant-drawer-body{
+    padding: 0px !important;
+}

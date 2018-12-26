@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Layout, Menu, Drawer, Icon, Input, Row, Col, Button, Modal, Badge, Affix } from "antd";
+import { Layout, Menu, Drawer, Icon, Input, Row, Col, Button, Modal, Badge, Affix, Dropdown } from "antd";
 import './HeaderStore.css';
+import { HeaderOnSmallDevice } from "./HeaderMenu";
+import { Link } from 'react-router-dom';
 const Search = Input.Search;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -24,6 +26,7 @@ class HeaderStore extends Component {
     })
   }
   showDrawer = () => {
+    console.log('click')
     this.setState({
       visible: true,
     });
@@ -83,7 +86,6 @@ class HeaderStore extends Component {
       </Col>
       <Col xs={5}>
         <Menu theme="dark" mode="horizontal" >
-
           <Menu.Item key="2" className="float-right text-menu-dif">
             <b>Khác</b>
           </Menu.Item>
@@ -93,32 +95,43 @@ class HeaderStore extends Component {
     </Row>
     )
     const headerSmallDevice = (
-      <div>
-        <Button type="primary" onClick={this.showDrawer} className="float-right">
-          oepn
-        </Button>
+      <div style={{ backgroundColor: 'black' }}>
+        <Row>
+          <Col xs={12}>
+            <Link to="/trang-chu" className="btn btn-dark"><Icon type="home" theme="filled" /></Link>
+          </Col>
+          <Col xs={12} className="text-right">
+            <button onClick={this.showDrawer} className="btn btn-dark">
+              <i class="fas fa-bars"></i>
+            </button>
+          </Col>
+        </Row>
         <Drawer
-          title="Basic Drawer"
+          className="menu-drawer"
+          title="Thương hiệu"
           placement={this.state.placement}
           closable={false}
           onClose={this.onClose}
           visible={this.state.visible}
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          {HeaderOnSmallDevice}
+
         </Drawer>
       </div>
     );
     const device = this.uagent.search("iphone") > -1 || this.uagent.search("android") > -1 || this.uagent.search('ipad') > -1;
-    console.log(device, this.uagent)
+    const colSearch = !device ? 10 : 14;
+    console.log(this.uagent)
     return (
       <div>
         <Row className="m-3">
-          <Col xs={7} md={4}>
-            <img src="http://localhost:3000/Images/logo_retina.png" alt="" width="110" />
-          </Col>
-          <Col xs={10} md={8}>
+          {!device && (
+            <Col xs={7} md={4}>
+              <Link to="/trang-chu"> <img src="/Images/logo_retina.png" alt="" width="110" /></Link>
+            </Col>
+          )}
+
+          <Col xs={colSearch} md={8}>
             <Search placeholder="Tìm kiếm tên giày..." />
           </Col>
           <Col>

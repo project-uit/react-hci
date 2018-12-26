@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './ListShoe.css';
 import {
-    List, message, Avatar, Spin, Layout, Menu, Icon
+    List, message, Avatar, Spin, Layout, Menu, Icon, Row, Col
 } from 'antd';
 import reqwest from 'reqwest';
 
 import InfiniteScroll from 'react-infinite-scroller';
+import CardShoe from './../Component/CardShoe';
 const {
     Header, Content, Footer, Sider,
 } = Layout;
@@ -73,38 +74,25 @@ class ListShoe extends Component {
                 <div className="grid-filter">
                     <div>
                         <Sider
-                        theme="light"
-                            breakpoint="lg"
+                            theme="light"
+                            breakpoint="md"
                             collapsedWidth="0"
                             onBreakpoint={(broken) => { console.log(broken); }}
                             onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
                         >
-                            <div>
-                                123
-                            </div>
-                            {/* <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-                                <Menu.Item key="1">
-                                    <Icon type="user" />
-                                    <span className="nav-text">nav 1</span>
-                                </Menu.Item>
-                                <Menu.Item key="2">
-                                    <Icon type="video-camera" />
-                                    <span className="nav-text">nav 2</span>
-                                </Menu.Item>
-                                <Menu.Item key="3">
-                                    <Icon type="upload" />
-                                    <span className="nav-text">nav 3</span>
-                                </Menu.Item>
-                                <Menu.Item key="4">
-                                    <Icon type="user" />
-                                    <span className="nav-text">nav 4</span>
-                                </Menu.Item>
-                            </Menu> */}
+                            <Row>
+                                <Col>
+                                    dkm
+                                </Col>
+                                <Col>
+                                    dkm
+                                </Col>
+                            </Row>
                         </Sider>
                     </div>
                 </div>
                 <div className="grid-list">
-                    <InfiniteScroll
+                    {/* <InfiniteScroll
                         initialLoad={false}
                         pageStart={0}
                         loadMore={this.handleInfiniteOnLoad}
@@ -117,7 +105,25 @@ class ListShoe extends Component {
                                 <Spin size="large" />
                             </div>
                         )}
-                    </InfiniteScroll>
+                    </InfiniteScroll> */}
+                    <Row className="m-3">
+                        <Col xs={24} sm={24} md={24} lg={24}>
+                            <Row className="p-1" gutter={16} >
+                                <Col xs={12} md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
+                                    <CardShoe img="/Images/802799_01.jpg" company="Nike" name="AIR JORDAN 1 RETRO HIGH" money="$200" gender="Nam" />
+                                </Col>
+                                <Col xs={12} md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
+                                    <CardShoe img="/Images/805251_01.jpg" company="Converse" name="CHUCK 70 HI" money="$200" gender="Nam" />
+                                </Col>
+                                <Col xs={12} md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
+                                    <CardShoe img="/Images/800345_1.jpg" company="Adidas" name="TUBULAR NOVA PK" money="$400" gender="Nam" />
+                                </Col>
+                                <Col xs={12} md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
+                                    <CardShoe img="/Images/805223_01.jpg" company="Nike" name="AIR JORDAN 1 MID SE" money="$350" gender="Nam" />
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
                 </div>
 
             </div>
