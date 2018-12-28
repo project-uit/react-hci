@@ -1,0 +1,27 @@
+.text{
+    color: #7c795d; font-family: 'Trocchi', serif; font-size: 14px; font-weight: 700; line-height: 40px; margin: 0; 
+}
+.effect:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+}
+.effect{
+    border-radius: 2px;
+    transition:.5s;
+}
+.company {
+    font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 22px; font-weight: bold;
+}
+.price{
+    font-family: Roboto Condensed,sans-serif;
+    font-size: 14px;
+    color: #343434;
+    letter-spacing: 1px;
+}
+.img-shoe {
+    padding: .25rem;
+    background-color: #fff;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+  }

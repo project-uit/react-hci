@@ -4,6 +4,7 @@ import { Layout, Menu, Breadcrumb, Icon, Input, Carousel, Button, Row, Col, Card
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import './Home.css';
+import CardShoe from './../Component/CardShoe';
 const prevArrow = <img src='http://localhost:3000/Images/icon_Left_Arrow-512.png' />
 const nextArrow = <img src='http://localhost:3000/Images/icon_right_rounded-512.png' />
 const { Meta } = Card;
@@ -44,7 +45,7 @@ class Home extends Component {
         return (
 
             <div>
-                <Row>
+                <Row className="m-1">
                     <Col xs={24} sm={24} md={24} lg={24} className="p-1">
                         <Slider {...settings1} className="sale">
                             <div align="center">
@@ -61,19 +62,48 @@ class Home extends Component {
                             </div>
                         </Slider>
                     </Col>
-                    <Col xs={24} sm={24} md={24} lg={24}>
+                    <Col xs={24} sm={24} md={24} lg={24} className="silde-border">
                         <Slider {...settings2} >
-                            <div>
-                                <img src="http://localhost:3000/Images/NMD.jpg" alt="" className="img-thumbnail" className="img-carousel" onClick={this.imgClick} />
+                            <div className="hand-pointer">
+                                <Row>
+                                    <Col xs={12}>
+                                        <img src="/Images/804354_1.jpg" alt="" className="img-carousel" />
+                                    </Col>
+                                    <Col xs={12}>
+                                        <div className="m-4">
+                                            <h2 className="text-title-carousel">Hot trending</h2>
+                                            <h4 className="text-carousel">AIR JORDAN 10 RETRO</h4>
+                                            <h4 className="price-carousel">$600</h4>
+                                            <Button size="large">Mua ngay</Button>
+                                        </div>
+                                    </Col>
+                                </Row>
                             </div>
-                            <div>
-                                <img src="http://localhost:3000/Images/NikeRoshe.jpg" alt="" className="img-thumbnail" className="img-carousel" />
+                            <div className="hand-pointer">
+                                <Col xs={12}>
+                                    <img src="/Images/805531_01.jpg" alt="" className="img-carousel" />
+                                </Col>
+                                <Col xs={12}>
+                                    <div className="m-4">
+                                        <h2 className="text-title-carousel">Hot trending</h2>
+                                        <h4 className="text-carousel">AIR JORDAN 10 RETRO</h4>
+                                        <h4 className="price-carousel">$600</h4>
+                                        <Button size="large">Mua ngay</Button>
+                                    </div>
+                                </Col>
                             </div>
-                            <div>
-                                <img src="http://localhost:3000/Images/BB6141_01_standard.jpg" alt="" className="img-thumbnail" className="img-carousel" />
-                            </div>
-                            <div>
-                                <img src="http://localhost:3000/Images/BB6141_01_standard.jpg" alt="" className="img-thumbnail" className="img-carousel" />
+                            <div className="hand-pointer">
+                                <Col xs={12}>
+                                    <img src="/Images/805570_4.jpg" alt="" className="img-carousel" />
+                                </Col>
+                                <Col xs={12}>
+                                    <div className="m-4">
+                                        <h2 className="text-title-carousel">Hot trending</h2>
+                                        <h4 className="text-carousel">AIR JORDAN 10 RETRO</h4>
+                                        <h4 className="price-carousel">$600</h4>
+                                        <Button size="large">Mua ngay</Button>
+                                    </div>
+                                </Col>
                             </div>
                         </Slider>
                     </Col>
@@ -83,31 +113,19 @@ class Home extends Component {
                     <Col xs={24} sm={24} md={24} lg={24}>
                         <h3 className="text-center"> Các sản phẩm bán chạy</h3>
                     </Col>
-                    <Col xs={20} sm={20} md={20} lg={20} offset={2} className="light-gray" >
-                        <Row className="p-1" gutter={8} >
+                    <Col xs={20} sm={20} md={20} lg={20} offset={2} >
+                        <Row className="p-1" gutter={16} >
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <div className="wrapper" onClick={this.imgClick}>
-                                    <img alt="example" src="http://localhost:3000/Images/NMD1.jpg" className="img-thumbnail thumbnail" />
-                                    <a>Yeezy v2 350</a>
-                                </div>
+                                <CardShoe img="/Images/802799_01.jpg" company="Nike" name="AIR JORDAN 1 RETRO HIGH" money="$200" gender="Nam"/>
                             </Col>
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <div className="wrapper">
-                                    <img alt="example" src="http://localhost:3000/Images/NMD1.jpg" className="img-thumbnail thumbnail" />
-                                    <a>Yeezy v2 350</a>
-                                </div>
+                                <CardShoe img="/Images/805251_01.jpg" company="Converse" name="CHUCK 70 HI" money="$200" gender="Nam"/>
                             </Col>
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <div className="wrapper">
-                                    <img alt="example" src="http://localhost:3000/Images/NMD1.jpg" className="img-thumbnail thumbnail" />
-                                    <a>Yeezy v2 350 </a>
-                                </div>
+                                <CardShoe img="/Images/800345_1.jpg" company="Adidas" name="TUBULAR NOVA PK" money="$400" gender="Nam"/>
                             </Col>
                             <Col md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                <div className="wrapper">
-                                    <img alt="example" src="http://localhost:3000/Images/NMD1.jpg" className="img-thumbnail thumbnail" />
-                                    <a>Yeezy v2 350 </a>
-                                </div>
+                                <CardShoe img="/Images/805223_01.jpg" company="Nike" name="AIR JORDAN 1 MID SE" money="$350" gender="Nam"/>
                             </Col>
                         </Row>
                     </Col>
@@ -116,33 +134,36 @@ class Home extends Component {
                     <Col xs={24} sm={24} md={24} lg={24}>
                         <h3 className="text-center"> Giới tính</h3>
                     </Col>
-                    <Col xs={20} md={20} lg={20} xl={20} offset={2} className="light-gray">
-                        <Row className="p-1" gutter={8}>
+                    <Col xs={20} md={20} lg={20} xl={20} offset={2} >
+                        <Row className="p-1" gutter={16}>
                             <Col md={8} lg={8} xl={8} style={{ marginBottom: 8 }}>
-                                <div className="wrapper">
-                                    <img alt="example" src="http://localhost:3000/Images/NMD1.jpg" className="img-thumbnail " />
-                                    <a>Unisex</a>
-                                </div>
+                                <CardShoe img="/Images/201444_1.jpg" company="Nam" />
                             </Col>
                             <Col md={8} lg={8} xl={8} style={{ marginBottom: 8 }}>
-                                <div className="wrapper">
-                                    <img alt="example" src="http://localhost:3000/Images/NMD1.jpg" className="img-thumbnail " />
-                                    <a>Nam</a>
-                                </div>
+                                <CardShoe img="/Images/802070_01.jpg" company="Nữ" />
                             </Col>
                             <Col md={8} lg={8} xl={8}>
-                                <div className="wrapper">
-                                    <img alt="example" src="http://localhost:3000/Images/NMD1.jpg" className="img-thumbnail " />
-                                    <a>Nữ</a>
-                                </div>
+                                <CardShoe img="/Images/201035_01.jpg" company="Unisex" />
                             </Col>
                         </Row>
                     </Col>
                 </Row>
-                <div align="center" className="m-3">
-                    <img alt="example" src="http://localhost:3000/Images/4_storeimage_big.jpg" className="img-thumbnail " style={{ width: 576 }}/>
-                    <img alt="example" src="http://localhost:3000/Images/_storeimage_big.jpg" className="img-thumbnail " style={{ width: 576 }}/>
-                </div>
+                <Row className="m-3">
+                    <Col xs={20} offset={2}>
+                        <Row gutter={8}>
+                            <Col xs={24} sm={24} md={8} >
+                                <img alt="example" src="/Images/4_storeimage_big.jpg" className="img-thumbnail" />
+                            </Col>
+                            <Col xs={24} sm={24} md={8}>
+                                <img alt="example" src="/Images/_storeimage_big.jpg" className="img-thumbnail" />
+                            </Col>
+                            <Col xs={24} sm={24} md={8}>
+                                <img alt="example" src="/Images/3_storeimage_big.jpg" className="img-thumbnail" />
+                            </Col>
+                        </Row>
+                    </Col>
+
+                </Row>
             </div>
         );
     }
