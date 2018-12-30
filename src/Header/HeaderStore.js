@@ -41,7 +41,7 @@ class HeaderStore extends Component {
     const header = (<Row className="fix-menu">
       <Col xs={19}>
         <Menu theme="dark" mode="horizontal" >
-          <Menu.Item key="1"><span className="text-menu-color">Air Jordan</span></Menu.Item>
+          <Menu.Item key="1"><Link to="/danh-sach-giay"><span className="text-menu-color">Air Jordan</span> </Link></Menu.Item>
           <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Nike</span></span>}>
             <Menu.Item key="setting:3s">Jordan</Menu.Item>
             <Menu.Item key="setting:3s">Tennis</Menu.Item>

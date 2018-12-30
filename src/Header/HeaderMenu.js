@@ -1,11 +1,12 @@
 import { Menu } from 'antd';
 import React from "react";
+import { Link } from 'react-router-dom';
 const SubMenu = Menu.SubMenu;
 export const HeaderOnSmallDevice = (
 
     <div>
         <Menu theme="dark" mode="inline" >
-            <Menu.Item key="1"><span className="text-menu-color">Air Jordan</span></Menu.Item>
+            <Menu.Item key="1"><Link to="danh-sach-giay"><span className="text-menu-color">Air Jordan</span></Link></Menu.Item>
             <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Nike</span></span>}>
                 <Menu.Item key="setting:3s">Jordan</Menu.Item>
                 <Menu.Item key="setting:3s">Tennis</Menu.Item>

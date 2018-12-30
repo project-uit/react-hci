@@ -13,12 +13,21 @@
   }
   .grid-container{
     display: grid;
+    
     grid-template-areas: 'filter list list';
   }
   .grid-filter{
     grid-area: filter;
     background-color: white;
+    z-index: 1;
   }
   .grid-list{
     grid-area: list;
   }
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: black !important; 
+    border-color: black !important;
+  }
+.ant-checkbox-wrapper:hover .ant-checkbox-inner{
+  border-color: black !important;
+}
