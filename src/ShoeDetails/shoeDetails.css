@@ -1,3 +1,11 @@
+.shoe-title{
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 #000;
+}
+
 .btn-size{
     display: inline-block;
     width: 25px;
@@ -11,6 +19,26 @@
 
 .btn-size input{
     visibility: hidden;
+}
+
+.bold-btn{
+    background-color: #C4C4C4;
+    opacity: 0.1;
+}
+
+.bold-btn:hover{
+    background-color: #C4C4C4;
+    opacity: 0.3;
+}
+
+.bold-btn:focus{
+    background-color: #C4C4C4;
+    opacity: 0.1;
+}
+
+.bold-btn:focus:hover{
+    background-color: #C4C4C4;
+    opacity: 0.3;
 }
 
 .checkmark {
@@ -63,8 +91,57 @@
     padding: 10px;
   }
 
-  .comment{
-      border: 1px solid #EEEEEE;
-      margin-bottom: 5px;
-      border-radius: 5px;  
+.comment{
+    border: 1px solid #EEEEEE;
+    margin-bottom: 5px;
+    border-radius: 5px;  
+}
+
+.slide-slick-item{
+    width: 99% !important;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    border-radius: 15px;
+}
+
+.slide-slick-item a{
+    padding: 0px !important;
+}
+
+.slide-slick-item img{
+    min-height: 200px;
+    max-height: 200px;
+    padding: 2px !important;
+    border: 1px solid #C4C4C4;
+    border-radius: 15px;
+}
+
+/* Container holding the image and the text */
+.image-container {
+    position: relative;
+    text-align: center;
+    color: #000000;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #C4C4C4;
+    font-family: 'Enriqueta', arial, serif;
+    line-height: 1.25;
+    font-size: 2.2vw;
+    font-weight: bold;
+  }
+
+@media only screen and (max-width: 980px) {
+    .slide-slick-item img{
+        min-height: 150px;
+        max-height: 150px;
+        padding: 2px !important;
+        border: 1px solid #C4C4C4;
+        border-radius: 15px;
+    }
   }

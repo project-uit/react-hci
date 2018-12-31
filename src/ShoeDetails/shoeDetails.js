@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./shoeDetails.css";
 import styles from "../RangeSlider/styles.css";
 import { Button, Row, Col, Rate } from "antd";
-import { Slider } from 'reactrangeslider';
+import { Slider as RangeSlider } from 'reactrangeslider';
+import Slider from "react-slick";
 import {
   Carousel,
   CarouselItem,
@@ -14,19 +15,52 @@ import {
 
 const items = [
   {
-    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa1d%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa1d%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22218.3%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+    src: 'http://localhost:3000/Images/nike-roshe-run-flyknit-wolf-grey-1.jpg',
     altText: 'Slide 1',
     caption: 'Slide 1'
   },
   {
-    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+    src: 'http://localhost:3000/Images/nike-roshe-run-flyknit-wolf-grey-2.jpg',
     altText: 'Slide 2',
     caption: 'Slide 2'
   },
   {
-    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+    src: 'http://localhost:3000/Images/nike-roshe-run-flyknit-wolf-grey-3.jpg',
     altText: 'Slide 3',
     caption: 'Slide 3'
+  }
+];
+
+const favorite_items = [
+  {
+    src: 'http://localhost:3000/Images/010138_01.jpg',
+    altText: 'Slide 1',
+    caption: 'Slide 1'
+  },
+  {
+    src: 'http://localhost:3000/Images/012392_01.jpg',
+    altText: 'Slide 2',
+    caption: 'Slide 2'
+  },
+  {
+    src: 'http://localhost:3000/Images/201035_01.jpg',
+    altText: 'Slide 3',
+    caption: 'Slide 3'
+  },
+  {
+    src: 'http://localhost:3000/Images/201444_1.jpg',
+    altText: 'Slide 4',
+    caption: 'Slide 4'
+  },
+  {
+    src: 'http://localhost:3000/Images/800345_1.jpg',
+    altText: 'Slide 5',
+    caption: 'Slide 5'
+  },
+  {
+    src: 'http://localhost:3000/Images/804104_01.jpg',
+    altText: 'Slide 6',
+    caption: 'Slide 6'
   }
 ];
 
@@ -87,6 +121,46 @@ class ShoeDetails extends Component {
       );
     });
 
+    var settings = {
+      slidesToShow: 4,
+      slidesToScroll: 2,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: false,
+      dots: false,
+      infinite: true,
+      pauseOnHover: true,
+      speed: 500,
+			responsive: [{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3
+				}
+			}, {
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 2
+				}
+			}]
+    };
+
+    const slider_slick_items = favorite_items.map((favorite_items) => {
+      return (
+        <div
+          className = "slide-slick-item d-flex align-items-stretch"
+          onExiting={this.onExiting}
+          onExited={this.onExited}
+          key={favorite_items.src}
+        >
+          <a className="btn image-container" href="#doesnotexits">
+            <img className="img-fluid" src={favorite_items.src} alt={favorite_items.altText} draggable="false"></img>
+            <div className="centered">{favorite_items.caption}</div>
+          </a>
+          
+        </div>
+      );
+    });
+
     return (
       <div className="container gray-bg">
         <Row>
@@ -99,8 +173,8 @@ class ShoeDetails extends Component {
                   previous={this.previous}
                 >
                   {slides}
-                  <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                  <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+                  <CarouselControl className="bold-btn" direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                  <CarouselControl className="bold-btn" direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
               </Col>
               <Col className="pl-3 align-self-stretch" xs={24} sm={24} md={15} lg={15}>
@@ -110,12 +184,12 @@ class ShoeDetails extends Component {
                     <h6>
                       Giày nam
                     </h6>
-                    <h5 className="text-center">
+                    <h5 className="text-center shoe-title">
                       Nike Air Max 95 SE
                     </h5>
-                    <h5>
+                    <h6>
                       Chọn Size
-                    </h5>
+                    </h6>
                     <div className="row size-box d-flex justify-content-center">
                       <div className="btn-group align-content-start flex-wrap justify-content-center" style={{ width: 170 }} data-toggle="buttons">
                         <Label className="m-1 btn btn-size" for='radio35'>35
@@ -208,7 +282,7 @@ class ShoeDetails extends Component {
                 <h2>Đánh giá sản phẩm</h2>
                 {/* size */}
                 <p className="font-weight-bold h5 mt-3">Size</p>
-                <Slider
+                <RangeSlider
                   step={2}
                   disabled
                   defaultValue={75}
@@ -225,7 +299,7 @@ class ShoeDetails extends Component {
 
                 {/* Su thoai mai */}
                 <p className="font-weight-bold h5 mt-3">Sự thoải mái</p>
-                <Slider
+                <RangeSlider
                   step={2}
                   disabled
                   defaultValue={95}
@@ -242,7 +316,7 @@ class ShoeDetails extends Component {
 
                 {/* Do ben */}
                 <p className="font-weight-bold h5 mt-3">Độ bền</p>
-                <Slider
+                <RangeSlider
                   step={2}
                   disabled
                   defaultValue={50}
@@ -268,7 +342,7 @@ class ShoeDetails extends Component {
                       rất êm, thực sự rất tốt. Shiper rất nhanh, nhiệt tình và vui vẻ, mình rất thích việc shop cho gửi hàng đến tận nơi rồi mới
                       thanh toán, rất tiện dụng!
                     </p>
-                    <img src="http://localhost:3000/Images/NikeRoshe.jpg" alt="" className="img-thumbnail img-comment"></img>
+                    <img src="http://localhost:3000/Images/nike roshe flyknit-real.jpg" alt="" className="img-thumbnail img-comment"></img>
                   </p>
                 </div>
                 
@@ -280,7 +354,7 @@ class ShoeDetails extends Component {
                     Chưa kể trông nó còn rất đẹp. Chúng có màu sáng hơn một chút so với hình ảnh, nhưng tôi 
                     thực sự thích chúng theo cách này nhiều hơn!
                     </p>
-                    <img src="http://localhost:3000/Images/NikeRoshe.jpg" alt="" className="img-thumbnail img-comment"></img>
+                    <img src="http://localhost:3000/Images/Nike-Flyknit-Roshe-Run-Charcoal-real-2.jpg" alt="" className="img-thumbnail img-comment"></img>
                   </div>
                 </Collapse>
                 <Row className="d-flex justify-content-end mb-3">
@@ -295,6 +369,14 @@ class ShoeDetails extends Component {
                 </Row>
               </Col>
             </Row>
+          </Col>
+        
+          {/* San pham quan tam */}
+          <Col className="mb-3" xs={24} sm={24} md={24} lg={24}>
+            <h3 className="d-flex justify-content-center"> Sản phẩm có thể bạn quan tâm </h3>
+            <Slider {...settings}>
+              {slider_slick_items}
+            </Slider>
           </Col>
         </Row>
       </div >
