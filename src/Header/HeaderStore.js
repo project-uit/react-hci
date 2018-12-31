@@ -3,6 +3,7 @@ import { Layout, Menu, Drawer, Icon, Input, Row, Col, Button, Modal, Badge, Affi
 import './HeaderStore.css';
 import { HeaderOnSmallDevice } from "./HeaderMenu";
 import { Link } from 'react-router-dom';
+import Login from '../Login/Login';
 const Search = Input.Search;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -38,10 +39,10 @@ class HeaderStore extends Component {
     });
   };
   render() {
-    const header = (<Row className="fix-menu">
+    const header = (<Row className="fix-menu" style={{zIndex: 5}}>
       <Col xs={19}>
         <Menu theme="dark" mode="horizontal" >
-          <Menu.Item key="1"><span className="text-menu-color">Air Jordan</span></Menu.Item>
+          <Menu.Item key="1"><Link to="/danh-sach-giay"><span className="text-menu-color">Air Jordan</span> </Link></Menu.Item>
           <SubMenu title={<span className="submenu-title-wrapper"><span className="text-menu-color">Nike</span></span>}>
             <Menu.Item key="setting:3s">Jordan</Menu.Item>
             <Menu.Item key="setting:3s">Tennis</Menu.Item>
@@ -160,29 +161,7 @@ class HeaderStore extends Component {
             <div></div>
           ]}
         >
-          <Row>
-            <Col>
-              <label>Tài khoản</label>
-              <Input placeholder="" />
-            </Col>
-            <Col>
-              <label className="mt-2">Mật khẩu</label>
-              <Input placeholder="" type="password" />
-            </Col>
-            <Col>
-              <Button className="mt-2">Đăng nhập</Button>
-            </Col>
-            <Col>
-              <div align="center" className="mt-2">
-                <a href="#">Quên mật khẩu</a>
-              </div>
-            </Col>
-            <Col>
-              <div align="center" className="mt-2">
-                <a href="#">Chưa có tài khoản/đăng ký</a>
-              </div>
-            </Col>
-          </Row>
+          <Login />
         </Modal>
 
       </div>

@@ -3,10 +3,11 @@ import { Chat } from 'react-chat-popup';
 import './Footer.css';
 
 class Footer extends Component {
+
     render() {
         return (
             <div>
-                <Chat title="Hỗ trợ tư vấn" senderPlaceHolder="Nhập tin nhắn" />
+                <Chat title="Hỗ trợ tư vấn" senderPlaceHolder="Nhập tin nhắn" className="cac"/>
                 <footer className="page-footer font-small pt-4 black-footer">
                     <div className="container-fluid text-center text-md-left ">
                         <div className="row">

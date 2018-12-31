@@ -1,6 +1,6 @@
 import './Checkout.css';
 import React, { Component } from 'react';
-import { Form, Input, Tooltip, Icon, Select, Button } from 'antd';
+import { Form, Input, Tooltip, Icon, Select, Button, Radio } from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -118,7 +118,28 @@ class AddressForm extends Component {
                         <TextArea placeholder="Địa chỉ nhận hàng" autosize={{ minRows: 2, maxRows: 6 }} />
                     )}
                 </FormItem>
-               
+                <FormItem
+                    style={{ textAlign: 'center' }}
+                    {...formItemLayout}
+                    label={(
+                        <span>
+                            Chế độ giao hàng&nbsp;
+                            <Tooltip title={
+                                <div>
+                                    Giao hàng Mặc định: ......<br />
+                                    Giao hàng Tiêu chuẩn: ......<br/>
+                                    Giao hàng Nhanh: ......<br/>
+                                </div>}>
+                                <Icon type="question-circle-o" />
+                            </Tooltip>
+                        </span>
+                    )}>
+                    <Radio.Group onChange={this.onChangeShipMethod} defaultValue="normal" buttonStyle="solid">
+                        <Radio.Button value="default">Mặc định</Radio.Button>
+                        <Radio.Button value="normal">Tiêu chuẩn</Radio.Button>
+                        <Radio.Button value="fast">Nhanh</Radio.Button>
+                    </Radio.Group>
+                </FormItem>
                 <Button type="primary" onClick={this.next} className="float-right">Bước tiếp</Button>
             </Form>
         );

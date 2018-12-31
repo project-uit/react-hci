@@ -11,6 +11,8 @@ import {
 import Home from './Home/Home';
 import ListShoe from './List/ListShoe';
 import ShoeDetails from './ShoeDetails/shoeDetails';
+import Checkout from './Checkout/Checkout';
+import Signup from './Signup/Signup';
 class App extends Component {
 
 
@@ -22,20 +24,30 @@ class App extends Component {
         <Switch>
           <Route
             exact
-            path={["/trang-chu", "/"]}
+            path="(/trang-chu|/)"
             component={Home}
           />
           <Route
-            path={["/danh-sach-giay"]}
+            path='/danh-sach-giay'
             component={ListShoe}
           />
           <Route
             exact
-            path={["/chi-tiet-giay"]}
+            path='/chi-tiet-giay'
             component={ShoeDetails}
           />
+          <Route
+            exact
+            path='/thanh-toan'
+            component={Checkout}
+          />
+          <Route
+            exact
+            path='/dang-ky'
+            component={Signup}
+          />
         </Switch>
-      
+
         <Footer />
 
       </div >
