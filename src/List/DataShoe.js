@@ -16,12 +16,13 @@ const {
 const Option = Select.Option;
 const Panel = Collapse.Panel;
 var Element = Scroll.Element;
+
 export const ListShoeM = (
 
     <Row>
-        <Col xs={3} style={{ zIndex: 1 }}>
+        <Col xs={1} style={{ zIndex: 1 }}>
 
-            <Affix>
+            <Affix offsetTop={-60}>
                 <div style={{ width: '100%', marginTop: 70 }}>
                     <Tooltip placement="right" title="làm mới bộ lọc">
                         <Button className="mb-2" icon="reload"></Button>
@@ -30,16 +31,10 @@ export const ListShoeM = (
                         theme="light"
                         className="rounded-lg shadow"
                         style={{ width: '100%' }}
-                        breakpoint="lg"
+                        breakpoint="xxl"
                         collapsedWidth="0"
-                        onBreakpoint={(broken) => { console.log(broken); }}
-                        onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
                     >
-                        <Element id="containerElement" style={{
-                           
-                            height: 400,
-                            overflow: 'scroll',
-                        }}>
+                        <Element id="containerElement" className="ScrollBar">
                             <Collapse defaultActiveKey={['4', '1']}>
                                 <Panel header="Sắp xếp theo" key="4">
                                     <Row>
@@ -87,8 +82,14 @@ export const ListShoeM = (
                                                 <label className="ant-btn ant-btn-circle">
                                                     <input type="checkbox" style={{ display: 'none' }} />
                                                 </label>
+                                                <label className="ant-btn ant-btn-circle">
+                                                    <input type="checkbox" style={{ display: 'none' }} />
+                                                </label>
                                             </div>
                                             <div>
+                                                <label className="ant-btn ant-btn-circle">
+                                                    <input type="checkbox" style={{ display: 'none' }} />
+                                                </label>
                                                 <label className="ant-btn ant-btn-circle">
                                                     <input type="checkbox" style={{ display: 'none' }} />
                                                 </label>
@@ -118,7 +119,7 @@ export const ListShoeM = (
                 </div>
             </Affix>
         </Col>
-        <Col xs={21}>
+        <Col xs={23}>
             <Row className="ml-4 mt-3 mr-3">
                 <Col xs={12}>
                     <Breadcrumb separator=">">

@@ -90,8 +90,14 @@ class ListShoe extends Component {
                                                             <label className="ant-btn ant-btn-circle">
                                                                 <input type="checkbox" style={{ display: 'none' }} />
                                                             </label>
+                                                            <label className="ant-btn ant-btn-circle">
+                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            </label>
                                                         </div>
                                                         <div>
+                                                            <label className="ant-btn ant-btn-circle">
+                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            </label>
                                                             <label className="ant-btn ant-btn-circle">
                                                                 <input type="checkbox" style={{ display: 'none' }} />
                                                             </label>
