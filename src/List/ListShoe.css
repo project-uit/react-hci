@@ -13,13 +13,15 @@
   }
   .grid-container{
     display: grid;
-    
-    grid-template-areas: 'filter list list';
+    grid-template-areas: 'filter list list'; 
+  }
+  .grid-breadcums{
+    grid-area: breadcums;
+    background-color: white;
   }
   .grid-filter{
     grid-area: filter;
     background-color: white;
-    z-index: 1;
   }
   .grid-list{
     grid-area: list;
@@ -28,6 +30,18 @@
     background-color: black !important; 
     border-color: black !important;
   }
+  .grid-filer-container {
+    display: grid;
+
+    grid-template-areas:  'breadcums' 'filters'; 
+  }
 .ant-checkbox-wrapper:hover .ant-checkbox-inner{
   border-color: black !important;
+}
+.ant-btn .ant-btn-circle input:checked{
+  background-color: black;
+}
+.ant-layout-sider-zero-width-trigger{
+  z-index: 1 !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

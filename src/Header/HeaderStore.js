@@ -39,7 +39,7 @@ class HeaderStore extends Component {
     });
   };
   render() {
-    const header = (<Row className="fix-menu">
+    const header = (<Row className="fix-menu" style={{zIndex: 5}}>
       <Col xs={19}>
         <Menu theme="dark" mode="horizontal" >
           <Menu.Item key="1"><Link to="/danh-sach-giay"><span className="text-menu-color">Air Jordan</span> </Link></Menu.Item>
