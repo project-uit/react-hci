@@ -4,7 +4,7 @@ import {
     Layout, Row, Col, Select, Collapse, Checkbox, Pagination
 } from 'antd';
 import CardShoe from './../Component/CardShoe';
-import { Affix, Button, Tooltip } from 'antd';
+import { Affix, Button, Tooltip, Icon } from 'antd';
 import { Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
 import { Input } from 'antd';
@@ -33,7 +33,8 @@ class ListShoe extends Component {
         })
     }
     state = {
-        chkBoxSize: []
+        chkBoxSize: [],
+        chkBoxColor: [false, false, false, false, false, false, false, false, false, false,]
     }
     componentWillMount() {
         var indents = [];
@@ -44,14 +45,18 @@ class ListShoe extends Component {
             chkBoxSize: indents
         })
     }
-    chkBoxLbClick(index) {
-
+    chkBoxColorClick(index) {
+        let items = this.state.chkBoxColor;
+        items[index] = !items[index];
+        this.setState({
+            chkBoxColor: items
+        })
     }
     render() {
         const device = this.uagent.search("iphone") > -1 || this.uagent.search("android") > -1 || this.uagent.search('ipad') > -1;
         return (
             <div>
-                {device && (<ListShoeM chkBoxSize={this.state.chkBoxSize} handleChangeChk={this.handleChangeChk}/>)
+                {device && (<ListShoeM chkBoxSize={this.state.chkBoxSize} handleChangeChk={this.handleChangeChk} chkBoxColor={this.state.chkBoxColor} />)
                 }
                 {
                     !device && (
@@ -102,6 +107,106 @@ class ListShoe extends Component {
                                                     <Col span={24}><Checkbox value="C123">Low top</Checkbox></Col>
                                                     <Col span={24}><Checkbox value="C222">High top</Checkbox></Col>
                                                     <Col span={24}><Checkbox value="C22222">Jordan</Checkbox></Col>
+                                                </Row>
+                                            </Panel>
+                                            <Panel header="Màu sắc" key="3s231">
+                                                <Row>
+                                                    <Col span={24}>
+                                                        <div className="container-flex-chkboxColor">
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#555', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(0)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[0] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: 'white', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(1)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[1] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#A40000', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(2)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[2] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#00D7DC', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(3)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[3] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#99B402', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(4)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[4] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                        </div>
+                                                        <div className="container-flex-chkboxColor">
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#000000', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(5)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[5] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#006ABF', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(6)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[6] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: 'blue', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(7)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[7] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#048B44', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(8)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[8] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                            <label>
+                                                                <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: 'gray', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(9)}>
+                                                                    {
+                                                                        this.state.chkBoxColor[9] && (
+                                                                            <Icon type="check" style={{ marginTop: 7 }} />
+                                                                        )
+                                                                    }
+                                                                </Link>
+                                                            </label>
+                                                        </div>
+                                                    </Col>
                                                 </Row>
                                             </Panel>
                                             <Panel header="Size" key="78">

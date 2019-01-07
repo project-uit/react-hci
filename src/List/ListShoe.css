@@ -55,3 +55,18 @@
   border-color: #adadad;
   color: #333;
 }
+.checkbox-color {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: #333 solid 1px;
+}
+
+.container-flex-chkboxColor{
+  display: flex;
+   flex-direction: 'row';
+   margin-top: 1px;
+}
+.container-flex-chkboxColor > label {
+  margin: 1px;
+}
