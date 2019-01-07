@@ -51,7 +51,7 @@ export const HeaderOnSmallDevice = (
         <hr />
         <Menu theme="dark" mode="inline" >
             <Menu.Item key="2" className="float-right text-menu-dif">
-                <b>Khác</b>
+                <b>Tất cả giày</b>
             </Menu.Item>
             <Menu.Item key="1" className="float-right text-menu-dif"><b>Giảm giá</b></Menu.Item>
         </Menu>

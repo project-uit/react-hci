@@ -20,9 +20,7 @@ export default class HomeScreen extends Component {
   openDrawer() {
     this.drawer._root.open()
   };
-  _renderItem({ item, index }) {
-    return <Text>cặc</Text>
-  }
+
   render() {
 
     return (
@@ -52,7 +50,13 @@ export default class HomeScreen extends Component {
           {
             Carousel
           }
-
+          <Grid>
+            <Row>
+              <Col style={{ height: 70, alignItems: 'center' }}>
+                <Image style={{ width: '50%', height: '100%' }} source={{ uri: "https://www.shoestyle.ie/wp-content/uploads/2016/03/logo_retina.png" }} />
+              </Col>
+            </Row>
+          </Grid>
           <Text style={{ textAlign: 'center', marginTop: 5, marginBottom: 5 }}>Các sản phẩm bán chạy</Text>
 
           <Grid>
@@ -90,6 +94,9 @@ export default class HomeScreen extends Component {
               </Button>
               <Button vertical>
                 <Text style={{ color: 'white' }}>Cửa hàng</Text>
+              </Button>
+              <Button vertical>
+                <Text style={{ color: 'white' }}>Chat</Text>
               </Button>
             </FooterTab>
           </Footer>

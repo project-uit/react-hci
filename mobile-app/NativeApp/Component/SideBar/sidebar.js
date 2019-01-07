@@ -32,7 +32,7 @@ export default class SideBar extends Component {
     }
 
     toDetail = () => {
-        this.props.nav.navigate('DetailShoe')
+        this.props.nav.navigate('ListShoe')
     }
 
     componentDidMount() {
@@ -48,7 +48,7 @@ export default class SideBar extends Component {
                     <TouchableOpacity style={{ marginBottom: -19 }}>
                         <Text ></Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.itemMenuContainer}>
+                    <TouchableOpacity style={styles.itemMenuContainer} >
                         <Text style={styles.itemMenuLv1Text}>AIR JORDAN</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.itemMenuContainer} onPress={() => { this.showMenu(1) }}>
@@ -58,7 +58,7 @@ export default class SideBar extends Component {
                     {
                         this.state.menu1 ?
                             <View style={styles.container}>
-                                <TouchableOpacity style={styles.itemMenulv2Container} onPress={this.toDetail}>
+                                <TouchableOpacity style={styles.itemMenulv2Container} >
                                     <Text style={styles.itemMenuLv2Text}>Jordan</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.itemMenulv2Container}>
@@ -203,8 +203,8 @@ export default class SideBar extends Component {
                     <TouchableOpacity style={styles.otherItem}>
                         <Text style={styles.itemMenuLv2Text}>Giảm giá</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.otherItem}>
-                        <Text style={styles.itemMenuLv2Text}>Khác</Text>
+                    <TouchableOpacity style={styles.otherItem} onPress={this.toDetail}>
+                        <Text style={styles.itemMenuLv2Text}>Tất cả giày</Text>
                     </TouchableOpacity>
                 </View>
             </Content>
