@@ -49,3 +49,9 @@
   height: 320px;
   overflow: scroll;
 }
+
+.ant-btn .ant-btn-circle .active input:checked{
+  background-color: #e6e6e6;
+  border-color: #adadad;
+  color: #333;
+}

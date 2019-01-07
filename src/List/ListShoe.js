@@ -8,7 +8,8 @@ import { Affix, Button, Tooltip } from 'antd';
 import { Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
 import { Input } from 'antd';
-import { ListShoeM } from './DataShoe';
+import ListShoeM from './DataShoe';
+
 
 
 const {
@@ -19,22 +20,46 @@ const Panel = Collapse.Panel;
 class ListShoe extends Component {
 
     uagent = navigator.userAgent.toLowerCase();
+    handleChangeChk(event, index) {
+
+        let items = this.state.chkBoxSize;
+        if (event.target.checked) {
+            items[index] = "ant-btn ant-btn-circle active";
+        } else {
+            items[index] = "ant-btn ant-btn-circle";
+        }
+        this.setState({
+            chkBoxSize: items
+        })
+    }
+    state = {
+        chkBoxSize: []
+    }
+    componentWillMount() {
+        var indents = [];
+        for (var i = 0; i < 10; i++) {
+            indents.push("ant-btn ant-btn-circle");
+        }
+        this.setState({
+            chkBoxSize: indents
+        })
+    }
+    chkBoxLbClick(index) {
+
+    }
     render() {
         const device = this.uagent.search("iphone") > -1 || this.uagent.search("android") > -1 || this.uagent.search('ipad') > -1;
-        console.log(device)
         return (
             <div>
-                {device && (ListShoeM)
+                {device && (<ListShoeM chkBoxSize={this.state.chkBoxSize} handleChangeChk={this.handleChangeChk}/>)
                 }
                 {
                     !device && (
 
                         <div className="grid-container">
                             <div className="grid-filter">
-                                <div style={{ width: '100%', marginTop: 70 }}>
-                                    <Tooltip placement="right" title="làm mới bộ lọc">
-                                        <Button className="mb-2" icon="reload"></Button>
-                                    </Tooltip>
+                                <div style={{ width: '100%', marginTop: 103 }}>
+
                                     <Sider
                                         theme="light"
                                         style={{ width: '100%' }}
@@ -44,6 +69,11 @@ class ListShoe extends Component {
                                         onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
                                     >
                                         <Collapse defaultActiveKey={['4', '1']}>
+                                            <div>
+                                                <Tooltip placement="topRight" title="Làm mới">
+                                                    <Button icon="reload" className="ml-1"></Button>
+                                                </Tooltip>
+                                            </div>
                                             <Panel header="Sắp xếp theo" key="4">
                                                 <Row>
                                                     <Col span={24}><Checkbox value="1">Bán chạy</Checkbox></Col>
@@ -78,37 +108,64 @@ class ListShoe extends Component {
                                                 <Row>
                                                     <Col>
                                                         <div>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[0]} >
+                                                                <input type="checkbox" style={{ display: 'none' }}
+                                                                    defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 0)}
+                                                                />
+                                                                35
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[1]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 1)}
+                                                                />
+                                                                36
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[2]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 2)}
+                                                                />
+                                                                37
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[3]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 3)}
+                                                                />
+                                                                38
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[4]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 4)}
+                                                                />
+                                                                39
                                                             </label>
                                                         </div>
                                                         <div>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[5]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 5)}
+                                                                />
+                                                                40
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[6]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 6)} />
+                                                                41
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[7]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 7)} />
+                                                                42
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[8]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 8)} />
+                                                                43
                                                             </label>
-                                                            <label className="ant-btn ant-btn-circle">
-                                                                <input type="checkbox" style={{ display: 'none' }} />
+                                                            <label className={this.state.chkBoxSize[9]}>
+                                                                <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                                                    onChange={(e) => this.handleChangeChk(e, 9)} />
+                                                                44
                                                             </label>
                                                         </div>
                                                     </Col>

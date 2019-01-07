@@ -86,8 +86,8 @@ class Home extends Component {
                                 <Col xs={12}>
                                     <div className="m-4">
                                         <h2 className="text-title-carousel">Hot trending</h2>
-                                        <h4 className="text-carousel">AIR JORDAN 10 RETRO</h4>
-                                        <h4 className="price-carousel">$600</h4>
+                                        <h4 className="text-carousel">PW SOLAR HU NMDO</h4>
+                                        <h4 className="price-carousel">$340</h4>
                                         <Button size="large">Mua ngay</Button>
                                     </div>
                                 </Col>
@@ -99,8 +99,8 @@ class Home extends Component {
                                 <Col xs={12}>
                                     <div className="m-4">
                                         <h2 className="text-title-carousel">Hot trending</h2>
-                                        <h4 className="text-carousel">AIR JORDAN 10 RETRO</h4>
-                                        <h4 className="price-carousel">$600</h4>
+                                        <h4 className="text-carousel">AIR JORDAN 1</h4>
+                                        <h4 className="price-carousel">$400</h4>
                                         <Button size="large">Mua ngay</Button>
                                     </div>
                                 </Col>
