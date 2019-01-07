@@ -17,6 +17,10 @@ class ListShoe extends Component {
     openDrawer() {
         this.drawer._root.open()
     };
+
+    toSearchListShoe = () => {
+        this.props.navigation.navigate('SearchListShoe')
+    }
     render() {
 
         return (
@@ -35,14 +39,10 @@ class ListShoe extends Component {
                     </Left>
                     <Body>
                         <Title>Danh sách giày</Title>
-                        {/* <Item >
-                            <Input placeholder='Tìm kiếm tên giày' style={{color: 'white'}}/>
-                            <Icon active name='ios-close-circle-outline' />
-                        </Item> */}
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Icon name='ios-search' size={30} />
+                            <Icon name='ios-search' size={30} onPress={this.toSearchListShoe}/>
                         </Button>
                         <Button transparent onPress={() => this.openDrawer()}>
                             <Icon name='ios-list' size={30} />

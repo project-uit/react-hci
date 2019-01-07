@@ -5,7 +5,7 @@ import { Platform, StyleSheet, TouchableOpacity, Text, View } from 'react-native
 export default class SideBarFilter extends Component {
 
     state = {
-        menu1: false,
+        menu1: true,
         menu2: false,
         menu3: false,
         menu4: false,

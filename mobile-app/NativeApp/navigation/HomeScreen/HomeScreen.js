@@ -6,7 +6,7 @@ import SideBar from './../../Component/SideBar/sidebar';
 import Carousel from './../../Component/Carousel/Carousel';
 import styled from 'styled-components/native'
 import CardShoe from './../../Component/CardShoe/CardShoe';
-
+import ActionButton from 'react-native-action-button';
 const Shadow = styled.View`
 shadow-opacity: 0.75;
 shadow-radius: 5px;
@@ -78,15 +78,6 @@ export default class HomeScreen extends Component {
             </Row>
           </Grid>
 
-          {/* <View style={[styles.parent]}>
-          <View style={[styles.child]}>
-
-
-          </View>
-          <View style={[styles.child, { backgroundColor: '#339966' }]} />
-          <View style={[styles.child, { backgroundColor: '#996633' }]} />
-          <View style={[styles.child, { backgroundColor: '#669933' }]} />
-        </View> */}
           <Footer>
             <FooterTab style={{ backgroundColor: '#0F0F0F' }}>
               <Button vertical>
