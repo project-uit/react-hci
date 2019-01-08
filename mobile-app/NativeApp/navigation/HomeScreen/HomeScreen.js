@@ -7,12 +7,8 @@ import Carousel from './../../Component/Carousel/Carousel';
 import styled from 'styled-components/native'
 import CardShoe from './../../Component/CardShoe/CardShoe';
 import ActionButton from 'react-native-action-button';
-const Shadow = styled.View`
-shadow-opacity: 0.75;
-shadow-radius: 5px;
-shadow-color: red;
-shadow-offset: 0px 0px;
-`;
+import BottomNavigation from '../../Component/Common/BottomNavigation/BottomNavigation';
+
 export default class HomeScreen extends Component {
   closeDrawer() {
     this.drawer._root.close()
@@ -58,9 +54,8 @@ export default class HomeScreen extends Component {
             </Row>
           </Grid>
           <Text style={{ textAlign: 'center', marginTop: 5, marginBottom: 5 }}>Các sản phẩm bán chạy</Text>
-
           <Grid>
-            <Row >
+            <Row>
               <Col style={{ height: 240, backgroundColor: 'white', marginRight: 4 }}>
                 <CardShoe company="Adidas" name="YEEZY BOOST 350" gender="Nam" price="$420" img="https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/805264_01.jpg" />
               </Col>
@@ -77,21 +72,10 @@ export default class HomeScreen extends Component {
               </Col>
             </Row>
           </Grid>
-
-          <Footer>
-            <FooterTab style={{ backgroundColor: '#0F0F0F' }}>
-              <Button vertical>
-                <Text style={{ color: 'white' }}>Dịch vụ</Text>
-              </Button>
-              <Button vertical>
-                <Text style={{ color: 'white' }}>Cửa hàng</Text>
-              </Button>
-              <Button vertical>
-                <Text style={{ color: 'white' }}>Chat</Text>
-              </Button>
-            </FooterTab>
-          </Footer>
         </Content>
+        <Footer>
+          <BottomNavigation selectedScreen='Home' navigation={this.props.navigation} />
+        </Footer>
       </Drawer>
     );
   }

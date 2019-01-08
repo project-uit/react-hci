@@ -3,12 +3,22 @@ import HomeScreen from './../../navigation/HomeScreen/HomeScreen';
 import DetailShoe from './../../navigation/DetailShoe/DetailShoe';
 import ListShoe from './../../navigation/ListShoe/ListShoe';
 import SearchListShoe from './../../navigation/ListShoe/SearchListShoe';
+import Cart from './../Page/Cart/Cart';
+import Checkout from './../Page/Checkout/Checkout';
+import CheckoutSuccess from './../Page/Checkout/CheckoutSuccess';
+import Login from './../Page/Login/Login';
+import Register from './../Page/Register/Register';
 
 export default RouteConfig = createStackNavigator({
   Home: HomeScreen,
   DetailShoe: DetailShoe,
   ListShoe: ListShoe,
-  SearchListShoe: SearchListShoe
+  SearchListShoe: SearchListShoe,
+  Cart: { screen: Cart },
+  Checkout: { screen: Checkout },
+  CheckoutSuccess: { screen: CheckoutSuccess },
+  Login: { screen: Login },
+  Register: { screen: Register }
 },
   {
     initialRouteName: 'Home',

@@ -104,7 +104,7 @@ export default class SideBarFilter extends Component {
             }}>
                 <View style={{ flex: 1 }}>
 
-                    <TouchableOpacity style={styles.itemMenuContainer} >
+                    <TouchableOpacity style={styles.itemMenuContainer} onPress={() =>  this.props.nav.navigate('Cart')} >
                         <Icon name='ios-refresh' size={30} />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.itemMenuContainer} onPress={() => { this.showMenu(1) }}>
@@ -248,7 +248,7 @@ export default class SideBarFilter extends Component {
                                 </ListItem>
                                 <ListItem>
                                     <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeColor(5)}>
-                                        <Badge style={{ backgroundColor: '#555', height: 32, width: 32, }}>
+                                        <Badge style={{ backgroundColor: '#000000', height: 32, width: 32, }}>
                                             {
                                                 this.state.chkBoxColor[5] && (
                                                     <Icon name="ios-checkmark" style={{ fontSize: 30, color: "#4494D5", lineHeight: 30, textAlign: 'center' }} />
@@ -257,7 +257,7 @@ export default class SideBarFilter extends Component {
                                         </Badge>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeColor(6)}>
-                                        <Badge style={{ backgroundColor: '#000000', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
+                                        <Badge style={{ backgroundColor: '#006ABF', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
                                             {
                                                 this.state.chkBoxColor[6] && (
                                                     <Icon name="ios-checkmark" style={{ fontSize: 30, color: "#4494D5", lineHeight: 30, textAlign: 'center' }} />
@@ -266,7 +266,7 @@ export default class SideBarFilter extends Component {
                                         </Badge>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeColor(7)}>
-                                        <Badge style={{ backgroundColor: '#006ABF', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
+                                        <Badge style={{ backgroundColor: 'blue', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
                                             {
                                                 this.state.chkBoxColor[7] && (
                                                     <Icon name="ios-checkmark" style={{ fontSize: 30, color: "#4494D5", lineHeight: 30, textAlign: 'center' }} />
@@ -275,7 +275,7 @@ export default class SideBarFilter extends Component {
                                         </Badge>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeColor(8)}>
-                                        <Badge style={{ backgroundColor: 'blue', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
+                                        <Badge style={{ backgroundColor: '#048B44', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
                                             {
                                                 this.state.chkBoxColor[8] && (
                                                     <Icon name="ios-checkmark" style={{ fontSize: 30, color: "#4494D5", lineHeight: 30, textAlign: 'center' }} />
@@ -284,7 +284,7 @@ export default class SideBarFilter extends Component {
                                         </Badge>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeColor(9)}>
-                                        <Badge style={{ backgroundColor: '#048B44', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
+                                        <Badge style={{ backgroundColor: 'gray', height: 32, width: 32, borderColor: 'black', borderWidth: 1 }}>
                                             {
                                                 this.state.chkBoxColor[9] && (
                                                     <Icon name="ios-checkmark" style={{ fontSize: 30, color: "#4494D5", lineHeight: 30, textAlign: 'center' }} />

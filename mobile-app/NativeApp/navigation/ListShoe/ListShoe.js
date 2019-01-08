@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { Header, Tab, Tabs, ScrollableTab, Left, Body, Right, Button, Icon, Title, Drawer, Item, Input } from 'native-base';
-import pic1 from '../../Images/012392_01.jpg'
-import SideBar from '../../Component/SideBar/sidebar';
+import {Icon as  IconFontAweSome} from 'react-native-vector-icons/FontAwesome';
+import { Header, Tab, Tabs, ScrollableTab, Left, Body, Right, Button, Icon, Title, Drawer, Item, Input, Footer } from 'native-base';
 import SideBarFilter from '../../Component/SideBarFilter/SideBarFilter';
 import TopSellListShoe from './TopSellListShoe';
 import TrendingListShoe from './TrendingListShoe';
 import PopularListShoe from './PopularListShoe';
 import AllListShoe from './AllListShoe';
+import BottomNavigation from '../../Component/Common/BottomNavigation/BottomNavigation';
 
 
 class ListShoe extends Component {
@@ -42,10 +42,10 @@ class ListShoe extends Component {
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Icon name='ios-search' size={30} onPress={this.toSearchListShoe}/>
+                            <Icon name='ios-search' size={30} onPress={this.toSearchListShoe} />
                         </Button>
                         <Button transparent onPress={() => this.openDrawer()}>
-                            <Icon name='ios-list' size={30} />
+                            {/* <IconFontAweSome name='filter' size={30} color="white"/> */}
                         </Button>
                     </Right>
                 </Header>
@@ -54,15 +54,18 @@ class ListShoe extends Component {
                         <AllListShoe />
                     </Tab>
                     <Tab heading="Phổ biến" tabStyle={{ backgroundColor: '#0F0F0F' }} activeTabStyle={{ backgroundColor: '#393939' }} textStyle={{ color: 'white' }}>
-                       <PopularListShoe />
+                        <PopularListShoe />
                     </Tab>
                     <Tab heading="Bán chạy" tabStyle={{ backgroundColor: '#0F0F0F' }} activeTabStyle={{ backgroundColor: '#393939' }} textStyle={{ color: 'white' }}>
                         <TopSellListShoe />
                     </Tab>
                     <Tab heading="Trending" tabStyle={{ backgroundColor: '#0F0F0F' }} activeTabStyle={{ backgroundColor: '#393939' }} textStyle={{ color: 'white' }}>
-                       <TrendingListShoe />
+                        <TrendingListShoe />
                     </Tab>
                 </Tabs>
+                <Footer>
+                    <BottomNavigation selectedScreen='ListShoe' navigation={this.props.navigation} />
+                </Footer>
             </Drawer>
         );
     }
