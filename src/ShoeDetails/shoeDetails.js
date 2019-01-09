@@ -5,11 +5,13 @@ import { Button, Row, Col, Rate, Comment, Icon, Tooltip, Avatar, List, Input as 
 import { Slider as RangeSlider } from 'reactrangeslider';
 import Slider from "react-slick";
 import moment from 'moment';
+import { Link } from 'react-router-dom';
+import CardShoe from './../Component/CardShoe';
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  Label, 
+  Label,
   Input,
   Collapse
 } from 'reactstrap';
@@ -70,7 +72,7 @@ const TextArea = InputAnt.TextArea;
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
-    header={`${comments.length+2} ${comments.length > 1 ? 'replies' : 'reply'}`}
+    header={`${comments.length + 2} ${comments.length > 1 ? 'replies' : 'reply'}`}
     itemLayout="horizontal"
     renderItem={props => <Comment {...props} />}
   />
@@ -79,23 +81,23 @@ const CommentList = ({ comments }) => (
 const Editor = ({
   onChange, onSubmit, submitting, value,
 }) => (
-  <div>
-    <Rate />
-    <Form.Item>
-      <TextArea rows={4} onChange={onChange} value={value} />
-    </Form.Item>
-    <Form.Item>
-      <Button
-        htmlType="submit"
-        loading={submitting}
-        onClick={onSubmit}
-        type="primary"
-      >
-        Thêm bình luận
+    <div>
+      <Rate />
+      <Form.Item>
+        <TextArea rows={4} onChange={onChange} value={value} />
+      </Form.Item>
+      <Form.Item>
+        <Button
+          htmlType="submit"
+          loading={submitting}
+          onClick={onSubmit}
+          type="primary"
+        >
+          Thêm bình luận
       </Button>
-    </Form.Item>
-  </div>
-);
+      </Form.Item>
+    </div>
+  );
 
 class ShoeDetails extends Component {
   constructor(props) {
@@ -112,6 +114,8 @@ class ShoeDetails extends Component {
       comments: [],
       submitting: false,
       value: '',
+      chkBoxSize: [], // hung
+      chkBoxColor: [false, true, false, false, false, false, false, false, false, false,] // hung
     };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -120,7 +124,38 @@ class ShoeDetails extends Component {
     this.onExited = this.onExited.bind(this);
     this.toggle = this.toggle.bind(this);
   }
+  // hung
+  chkBoxColorClick(index) {
+    let items = [false, false, false, false, false, false, false, false, false, false,];
+    items[index] = !items[index];
+    this.setState({
+      chkBoxColor: items
+    })
+  }
+  // hung
+  handleChangeChk(event, index) {
 
+    let items = this.state.chkBoxSize;
+    for (let i = 0; i < items.length; i++) {
+      items[i] = "ant-btn ant-btn-circle"
+    }
+    items[index] = "ant-btn ant-btn-circle active";
+
+    this.setState({
+      chkBoxSize: items
+    })
+  }
+  // hung
+  componentWillMount() {
+    var indents = [];
+    for (var i = 0; i < 10; i++) {
+      indents.push("ant-btn ant-btn-circle");
+    }
+    indents[0] = "ant-btn ant-btn-circle active";
+    this.setState({
+      chkBoxSize: indents
+    })
+  }
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
@@ -183,39 +218,39 @@ class ShoeDetails extends Component {
           {
             actions: ([
               <span>
-                  <Tooltip title="Like">
+                <Tooltip title="Like">
                   <Icon
                     type="like"
-                    theme= 'outlined'
+                    theme='outlined'
                     onClick={this.like}
                   />
-                  </Tooltip>
-                    <span style={{ paddingLeft: 8, cursor: 'auto' }}>
-                      0
+                </Tooltip>
+                <span style={{ paddingLeft: 8, cursor: 'auto' }}>
+                  0
                     </span>
-                  </span>,
-                <span>
-                  <Tooltip title="Dislike">
+              </span>,
+              <span>
+                <Tooltip title="Dislike">
                   <Icon
                     type="dislike"
                     theme='outlined'
                     onClick={this.dislike}
-                    />
-                  </Tooltip>
-                  <span style={{ paddingLeft: 8, cursor: 'auto' }}>
-                    0
+                  />
+                </Tooltip>
+                <span style={{ paddingLeft: 8, cursor: 'auto' }}>
+                  0
                   </span>
-                </span>,
-                <span>Reply to</span>
+              </span>,
+              <span>Reply to</span>
             ]),
             author: 'Hao Nguyen',
             avatar: 'http://localhost:3000/Images/my-avatar.png',
-            content:(
+            content: (
               <div>
                 <Rate allowHalf defaultValue={5} disabled />
                 <p>{this.state.value}</p>
                 <img src="http://localhost:3000/Images/nike roshe flyknit-real.jpg" alt="" className="img-thumbnail img-comment"></img>
-              </div>         
+              </div>
             ),
             datetime: moment().fromNow(),
           },
@@ -253,37 +288,38 @@ class ShoeDetails extends Component {
       slidesToScroll: 2,
       autoplay: true,
       autoplaySpeed: 4000,
-      arrows: false,
+      arrows: true,
       dots: false,
       infinite: true,
       pauseOnHover: true,
       speed: 500,
-			responsive: [{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 3
-				}
-			}, {
-				breakpoint: 520,
-				settings: {
-					slidesToShow: 2
-				}
-			}]
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3
+        }
+      }, {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 2
+        }
+      }]
     };
 
     const slider_slick_items = favorite_items.map((favorite_items) => {
       return (
         <div
-          className = "slide-slick-item d-flex align-items-stretch"
+
+          className="slide-slick-item d-flex align-items-stretch"
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={favorite_items.src}
         >
-          <a className="btn image-container" href="#doesnotexits">
+          <a className="btn image-container" href="#doesnotexits" draggable="false">
             <img className="img-fluid" src={favorite_items.src} alt={favorite_items.altText} draggable="false"></img>
             <div className="centered">{favorite_items.caption}</div>
           </a>
-          
+
         </div>
       );
     });
@@ -336,102 +372,159 @@ class ShoeDetails extends Component {
                 <Row>
                   <Col className="d-flex justify-content-center" xs={24} sm={24} md={24} lg={24}>
                     <div style={{ width: 300 }}>
-                    <h6>
-                      Giày nam
+                      <h6>
+                        Giày nam
                     </h6>
-                    <h5 className="text-center shoe-title">
-                      Nike roshe run flyknit wolf grey
+                      <h5 className="text-center shoe-title">
+                        Nike roshe run flyknit wolf grey
                     </h5>
-                    <h6>
-                      Chọn Size
+                      <h6 className="text-center">
+                        $240
                     </h6>
-                    <div className="row size-box d-flex justify-content-center">
-                      <div className="btn-group align-content-start flex-wrap justify-content-center" style={{ width: 170 }} data-toggle="buttons">
-                        <Label className="m-1 btn btn-size" for='radio35'>35
-                          <Input type="radio" name='radio' id='radio35' value='radio35'
-                          checked={this.state.selected === 'radio35'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio36'>36
-                          <Input type="radio" name='radio' id='radio36' value='radio36'
-                          checked={this.state.selected === 'radio36'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio37'>37
-                          <Input type="radio" name='radio' id='radio37' value='radio37'
-                          checked={this.state.selected === 'radio37'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio38'>38
-                          <Input type="radio" name='radio' id='radio38' value='radio38'
-                          checked={this.state.selected === 'radio38'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio39'>39
-                          <Input type="radio" name='radio' id='radio39' value='radio39'
-                          checked={this.state.selected === 'radio39'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio40'>40
-                          <Input type="radio" name='radio' id='radio40' value='radio40'
-                          checked={this.state.selected === 'radio40'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio41'>41
-                          <Input type="radio" name='radio' id='radio41' value='radio41'
-                          checked={this.state.selected === 'radio41'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio42'>42
-                          <Input type="radio" name='radio' id='radio42' value='radio42'
-                          checked={this.state.selected === 'radio42'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio43'>43
-                          <Input type="radio" name='radio' id='radio43' value='radio43'
-                          checked={this.state.selected === 'radio43'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                        <Label className="m-1 btn btn-size" for='radio44'>44
-                          <Input type="radio" name='radio' id='radio44' value='radio44'
-                          checked={this.state.selected === 'radio44'} onChange={(e) => this.setState({ selected: e.target.value })}
-                          ></Input>
-                          <div className="checkmark"></div>
-                        </Label>
-                      </div>
-                    </div>
+                      <h6>
+                        Chọn Size
+                    </h6>
+
+                      <Row>
+                        <Col offset={5}>
+                          <div className="size-row">
+                            <label className={this.state.chkBoxSize[0]} >
+                              <input type="checkbox" style={{ display: 'none' }}
+                                defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 0)}
+                              />
+                              35
+                                                            </label>
+                            <label className={this.state.chkBoxSize[1]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 1)}
+                              />
+                              36
+                                                            </label>
+                            <label className={this.state.chkBoxSize[2]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 2)}
+                              />
+                              37
+                                                            </label>
+                            <label className={this.state.chkBoxSize[3]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 3)}
+                              />
+                              38
+                                                            </label>
+                            <label className={this.state.chkBoxSize[4]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 4)}
+                              />
+                              39
+                                                            </label>
+                          </div>
+                          <div className="size-row">
+                            <label className={this.state.chkBoxSize[5]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 5)}
+                              />
+                              40
+                                                            </label>
+                            <label className={this.state.chkBoxSize[6]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 6)} />
+                              41
+                                                            </label>
+                            <label className={this.state.chkBoxSize[7]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 7)} />
+                              42
+                                                            </label>
+                            <label className={this.state.chkBoxSize[8]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 8)} />
+                              43
+                                                            </label>
+                            <label className={this.state.chkBoxSize[9]}>
+                              <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
+                                onChange={(e) => this.handleChangeChk(e, 9)} />
+                              44
+                                                            </label>
+                          </div>
+                        </Col>
+
+                      </Row>
+                      <h6>
+                        Chọn màu
+                    </h6>
+                      <Row>
+                        <Col offset={5}>
+                          <div className="container-flex-chkboxColor">
+                            <label>
+                              <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#555', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(0)}>
+                                {
+                                  this.state.chkBoxColor[0] && (
+                                    <Icon type="check" style={{ marginTop: 7 }} />
+                                  )
+                                }
+                              </Link>
+                            </label>
+                            <label>
+                              <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: 'white', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(1)}>
+                                {
+                                  this.state.chkBoxColor[1] && (
+                                    <Icon type="check" style={{ marginTop: 7 }} />
+                                  )
+                                }
+                              </Link>
+                            </label>
+                            <label>
+                              <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#A40000', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(2)}>
+                                {
+                                  this.state.chkBoxColor[2] && (
+                                    <Icon type="check" style={{ marginTop: 7 }} />
+                                  )
+                                }
+                              </Link>
+                            </label>
+                            <label>
+                              <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#00D7DC', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(3)}>
+                                {
+                                  this.state.chkBoxColor[3] && (
+                                    <Icon type="check" style={{ marginTop: 7 }} />
+                                  )
+                                }
+                              </Link>
+                            </label>
+                            <label>
+                              <Link to="#" className="rounded-circle checkbox-color" style={{ backgroundColor: '#99B402', textAlign: 'center' }} onClick={() => this.chkBoxColorClick(4)}>
+                                {
+                                  this.state.chkBoxColor[4] && (
+                                    <Icon type="check" style={{ marginTop: 7 }} />
+                                  )
+                                }
+                              </Link>
+                            </label>
+                          </div>
+                        </Col>
+                      </Row>
                     </div>
                   </Col>
                 </Row>
 
-                <Row className="d-flex justify-content-center mt-3">
+                <Row className="d-flex justify-content-center mt-3 mr-1">
                   <Button className="btn-green" type="primary">Thêm vào giỏ hàng</Button>
                 </Row>
 
                 <Row className="mt-3 pl-3 text-justify">
                   <p className="font-weight-bold">
-                    The Nike Roshe made its mark as the first shoe to include visible 
-                    Nike Roshe cushioning in the forefoot. The Nike Roshe Men's 
+                    The Nike Roshe made its mark as the first shoe to include visible
+                    Nike Roshe cushioning in the forefoot. The Nike Roshe Men's
                     Shoe energises the iconic design with updated materials in a variety of textures and accents.
-                    <br></br>
-                    <br></br>
-                    *Colour Shown: Whest/Light Bone/Black/Wheat
                     <br></br>
                     *Style: AJ2018-700
                   </p>
-                </Row>             
+                </Row>
               </Col>
             </Row>
-            
+
             <Row>
               <Col xs={24} sm={24} md={9} lg={9}>
                 <h2>Đánh giá sản phẩm</h2>
@@ -508,7 +601,7 @@ class ShoeDetails extends Component {
                         thanh toán, rất tiện dụng!
                         </p>
                         <img src="http://localhost:3000/Images/nike roshe flyknit-real.jpg" alt="" className="img-thumbnail img-comment"></img>
-                      </div>         
+                      </div>
                     )}
                     datetime={(
                       <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
@@ -517,7 +610,7 @@ class ShoeDetails extends Component {
                     )}
                   />
                 </div>
-                
+
                 <Collapse id="collapseExample" isOpen={this.state.collapse}>
                   <div className="comment p-3">
                     <Comment
@@ -533,11 +626,11 @@ class ShoeDetails extends Component {
                         <div>
                           <Rate allowHalf defaultValue={4.5} disabled />
                           <p>Giày thoải mái nhất mà tôi đã từng đi, nó chỉ cần lót thêm đệm để mang đến cho bạn một trải nghiệm hoàn hảo.
-                          Chưa kể trông nó còn rất đẹp. Chúng có màu sáng hơn một chút so với hình ảnh, nhưng tôi 
+                          Chưa kể trông nó còn rất đẹp. Chúng có màu sáng hơn một chút so với hình ảnh, nhưng tôi
                           thực sự thích chúng theo cách này nhiều hơn!
                           </p>
                           <img src="http://localhost:3000/Images/Nike-Flyknit-Roshe-Run-Charcoal-real-2.jpg" alt="" className="img-thumbnail img-comment"></img>
-                        </div>         
+                        </div>
                       )}
                       datetime={(
                         <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
@@ -566,8 +659,8 @@ class ShoeDetails extends Component {
               <Comment
                 avatar={(
                   <Avatar
-                  src="http://localhost:3000/Images/my-avatar.png"
-                  alt="Hao Nguyen"
+                    src="http://localhost:3000/Images/my-avatar.png"
+                    alt="Hao Nguyen"
                   />
                 )}
                 content={(
@@ -578,15 +671,45 @@ class ShoeDetails extends Component {
                     value={value}
                   />
                 )}
-               />
-              </div>
+              />
+            </div>
           </Col>
 
           {/* San pham quan tam */}
           <Col className="mb-3" xs={24} sm={24} md={24} lg={24}>
             <h3 className="d-flex justify-content-center"> Sản phẩm có thể bạn quan tâm </h3>
-            <Slider {...settings}>
-              {slider_slick_items}
+            <Slider {...settings}
+            >
+              <Row >
+                <Col xs={23}>
+                  <CardShoe img="/Images/805264_01.jpg" company="Adidas" name="YZ BOOST 350" money="$200" gender="Nam" />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={23}>
+                  <CardShoe img="/Images/804104_01.jpg" company="Adidas" name="TUBULAR" money="$400" gender="Nam" />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={23}>
+                  <CardShoe img="/Images/010138_01.jpg" company="Nike" name="AJ 19 SE" money="$200" gender="Nam" />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={23}>
+                  <CardShoe img="/Images/805778_01.jpg" company="Vans" name="CLASSIC SLIP" money="$250" gender="Nữ" />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={23}>
+                  <CardShoe img="/Images/801224_1.jpg" company="Adidas" name="Campus" money="$200" gender="Nữ" />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={23}>
+                  <CardShoe img="/Images/800411_1.jpg" company="Adidas" name="NMD R1 W" money="$350" gender="Nữ" />
+                </Col>
+              </Row>
             </Slider>
           </Col>
         </Row>

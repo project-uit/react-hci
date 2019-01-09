@@ -1,3 +1,26 @@
+.ant-btn .ant-btn-circle .active {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    color: #333;
+  }
+.size-row {
+
+
+}
+.container-flex-chkboxColor{
+    display: flex;
+     flex-direction: 'row';
+     margin: 5px;
+  }
+.checkbox-color {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: #333 solid 1px;
+}
+.size-row > label {
+    margin: 1px;
+}
 .shoe-title{
     font-family: 'Righteous', cursive;
     font-size: 20px;

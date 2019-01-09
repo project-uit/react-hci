@@ -50,7 +50,7 @@
   overflow: scroll;
 }
 
-.ant-btn .ant-btn-circle .active input:checked{
+.ant-btn .ant-btn-circle .active {
   background-color: #e6e6e6;
   border-color: #adadad;
   color: #333;

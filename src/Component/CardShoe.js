@@ -4,7 +4,7 @@ class CardShoe extends Component {
 
     render() {
         return (
-            <div className="w-full sm:w-1/2 md:w-1/3 flex flex-col effect">
+            <div className="w-full sm:w-1/2 md:w-1/3 flex flex-col effect ml-1">
                 <div className="bg-white rounded-lg shadow ">
                     <div className="bg-cover" >
                         <img src={this.props.img} className="img-shoe" />
