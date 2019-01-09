@@ -3,10 +3,24 @@
     border-color: #adadad;
     color: #333;
   }
-.size-row {
+  .slick-prev {
+    z-index: 1;
+    left: 1% !important;
+   }
+ .slick-next {
+     right: 17px !important;
+ }
+  @media only screen and (max-width: 768px) {
+    .slick-next {
+        right: 1% !important;
+    }
+  }
+  @media only screen and (max-width: 520px) {
+    .slick-next {
+        right: 10px !important;
+    }
+  }
 
-
-}
 .container-flex-chkboxColor{
     display: flex;
      flex-direction: 'row';
