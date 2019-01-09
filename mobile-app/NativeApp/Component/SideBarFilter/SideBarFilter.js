@@ -5,6 +5,7 @@ import { Platform, StyleSheet, TouchableOpacity, Text, View } from 'react-native
 export default class SideBarFilter extends Component {
 
     state = {
+        menu0: false,
         menu1: true,
         menu2: false,
         menu3: false,
@@ -27,10 +28,15 @@ export default class SideBarFilter extends Component {
 
         chkBoxColor: [false, false, false, false, false, false, false, false, false, false],
 
-        chkBoxSize: [false, false, false, false, false, false, false, false, false, false]
+        chkBoxSize: [false, false, false, false, false, false, false, false, false, false],
+
+        sortAZ: false,
+        sortZA: false
     }
     showMenu(value) {
-        if (value === 1) {
+        if (value === 0) {
+            this.setState({ menu0: !this.state.menu0 })
+        } else if (value === 1) {
             this.setState({ menu1: !this.state.menu1 })
         } else if (value === 2) {
             this.setState({ menu2: !this.state.menu2 })
@@ -41,6 +47,7 @@ export default class SideBarFilter extends Component {
         } else if (value === 5) {
             this.setState({ menu5: !this.state.menu5 })
         }
+
     }
 
     loaiGiaychkBoxChange(value) {
@@ -104,9 +111,41 @@ export default class SideBarFilter extends Component {
             }}>
                 <View style={{ flex: 1 }}>
 
-                    <TouchableOpacity style={styles.itemMenuContainer} onPress={() =>  this.props.nav.navigate('Cart')} >
+                    <TouchableOpacity style={styles.itemMenuContainer}>
                         <Icon name='ios-refresh' size={30} />
                     </TouchableOpacity>
+                    <TouchableOpacity style={styles.itemMenuContainer} onPress={() => { this.showMenu(0) }}>
+                        <Icon name='ios-arrow-down' size={30} style={styles.arrowDropDown} />
+                        <Text style={styles.itemMenuLv1Text}>Sắp xếp giá bán</Text>
+                    </TouchableOpacity>
+                    {
+                        this.state.menu0 ?
+                            <View style={styles.container}>
+                                <ListItem>
+                                    <CheckBox checked={this.state.sortAZ} color="black" onPress={() => {
+                                        this.setState({
+                                            sortAZ: !this.state.sortAZ,
+                                            sortZA: false
+                                        })
+                                    }} />
+                                    <Body>
+                                        <Text style={{ marginLeft: 5 }}>Tăng dần</Text>
+                                    </Body>
+                                </ListItem>
+                                <ListItem>
+                                    <CheckBox checked={this.state.sortZA} color="black" onPress={() => {
+                                        this.setState({
+                                            sortAZ: false,
+                                            sortZA: !this.state.sortZA
+                                        })
+                                    }} />
+                                    <Body>
+                                        <Text style={{ marginLeft: 5 }}>Giảm dần</Text>
+                                    </Body>
+                                </ListItem>
+                            </View>
+                            : <View />
+                    }                
                     <TouchableOpacity style={styles.itemMenuContainer} onPress={() => { this.showMenu(1) }}>
                         <Icon name='ios-arrow-down' size={30} style={styles.arrowDropDown} />
                         <Text style={styles.itemMenuLv1Text}>Giới tính</Text>
@@ -304,54 +343,54 @@ export default class SideBarFilter extends Component {
                         this.state.menu4 ?
                             <View style={styles.container}>
                                 <ListItem>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(0)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(0)}>
                                         <Badge style={this.state.chkBoxSize[0] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[0] ? styles.textSize2 : styles.textSize1}>35</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(1)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(1)}>
                                         <Badge style={this.state.chkBoxSize[1] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[1] ? styles.textSize2 : styles.textSize1}>36</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(2)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(2)}>
                                         <Badge style={this.state.chkBoxSize[2] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[2] ? styles.textSize2 : styles.textSize1}>37</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(3)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(3)}>
                                         <Badge style={this.state.chkBoxSize[3] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[3] ? styles.textSize2 : styles.textSize1}>38</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(4)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(4)}>
                                         <Badge style={this.state.chkBoxSize[4] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[4] ? styles.textSize2 : styles.textSize1}>39</Text>
                                         </Badge>
                                     </TouchableOpacity>
                                 </ListItem>
                                 <ListItem>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(5)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(5)}>
                                         <Badge style={this.state.chkBoxSize[5] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[5] ? styles.textSize2 : styles.textSize1}>40</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(6)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(6)}>
                                         <Badge style={this.state.chkBoxSize[6] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[6] ? styles.textSize2 : styles.textSize1}>41</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(7)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(7)}>
                                         <Badge style={this.state.chkBoxSize[7] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[7] ? styles.textSize2 : styles.textSize1}>42</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(8)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(8)}>
                                         <Badge style={this.state.chkBoxSize[8] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[8] ? styles.textSize2 : styles.textSize1}>43</Text>
                                         </Badge>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={{ margin: 2 }} onPress= {() => this.onChangeSize(9)}>
+                                    <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(9)}>
                                         <Badge style={this.state.chkBoxSize[9] ? styles.badgeSize2 : styles.badgeSize1}>
                                             <Text style={this.state.chkBoxSize[9] ? styles.textSize2 : styles.textSize1}>44</Text>
                                         </Badge>

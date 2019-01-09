@@ -8,6 +8,7 @@ import Checkout from './../Page/Checkout/Checkout';
 import CheckoutSuccess from './../Page/Checkout/CheckoutSuccess';
 import Login from './../Page/Login/Login';
 import Register from './../Page/Register/Register';
+import ReviewShoe from './../../navigation/DetailShoe/ReviewShoe';
 
 export default RouteConfig = createStackNavigator({
   Home: HomeScreen,
@@ -18,7 +19,8 @@ export default RouteConfig = createStackNavigator({
   Checkout: { screen: Checkout },
   CheckoutSuccess: { screen: CheckoutSuccess },
   Login: { screen: Login },
-  Register: { screen: Register }
+  Register: { screen: Register },
+  ReviewShoe: ReviewShoe
 },
   {
     initialRouteName: 'Home',

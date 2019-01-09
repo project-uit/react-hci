@@ -15,7 +15,7 @@ export default class CheckoutSuccess extends Component {
     render() {
         return (
             <Container>
-                <Header>
+                <Header style={{ backgroundColor: '#0F0F0F' }}>
                     <Left>
                         <Button transparent onPress={this.gotoHome}>
                             <Icon name='home' />

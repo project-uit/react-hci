@@ -6,7 +6,7 @@ class CardShoe extends Component {
     render() {
         const img = this.props.img;
         return (
-            <TouchableOpacity >
+            <TouchableOpacity onPress={this.props.toDetailShoe}>
                 <View style={styles.container}>
                     <Image style={{ width: 200, height: 150 }} source={{ uri: img }} />
                     <View style={styles.textContainer}>

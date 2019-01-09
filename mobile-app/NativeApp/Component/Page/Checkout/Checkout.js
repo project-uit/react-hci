@@ -34,7 +34,7 @@ export default class Checkout extends Component {
         const { paymentMethod } = this.state;
         return (
             <Container>
-                <Header>
+                <Header style={{ backgroundColor: '#0F0F0F' }}>
                     <Left>
                         <Button transparent onPress={() => this.props.navigation.goBack()}>
                             <Icon name='arrow-back' />
@@ -95,25 +95,25 @@ export default class Checkout extends Component {
                                 <Text style={styles.titleText}>Hình thức thanh toán</Text>
                             </CardItem>
                             <ListItem>
-                                <CheckBox onPress={() => this.changePaymentMedthod('cod')} checked={paymentMethod == 'cod' ? true : false} />
+                                <CheckBox onPress={() => this.changePaymentMedthod('cod')} color="black" checked={paymentMethod == 'cod' ? true : false} />
                                 <Body>
                                     <Text>Thanh toán khi nhận hàng (COD)</Text>
                                 </Body>
                             </ListItem>
                             <ListItem>
-                                <CheckBox onPress={() => this.changePaymentMedthod('creditcard')} checked={paymentMethod == 'creditcard' ? true : false} />
+                                <CheckBox onPress={() => this.changePaymentMedthod('creditcard')} color="black" checked={paymentMethod == 'creditcard' ? true : false} />
                                 <Body>
                                     <Text>Thanh toán qua thẻ tín dụng</Text>
                                 </Body>
                             </ListItem>
                             <ListItem>
-                                <CheckBox onPress={() => this.changePaymentMedthod('bank')} checked={paymentMethod == 'bank' ? true : false} />
+                                <CheckBox onPress={() => this.changePaymentMedthod('bank')} color="black" checked={paymentMethod == 'bank' ? true : false} />
                                 <Body>
                                     <Text>Thanh toán qua ngân hàng nội địa</Text>
                                 </Body>
                             </ListItem>
                             <ListItem>
-                                <CheckBox onPress={() => this.changePaymentMedthod('paypal')} checked={paymentMethod == 'paypal' ? true : false} />
+                                <CheckBox onPress={() => this.changePaymentMedthod('paypal')} color="black" checked={paymentMethod == 'paypal' ? true : false} />
                                 <Body>
                                     <Text>Thanh toán qua cổng Paypal</Text>
                                 </Body>

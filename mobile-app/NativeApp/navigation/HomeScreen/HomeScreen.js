@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Drawer, Grid, Col, Text, Footer, FooterTab, Input, Item, Row, Content } from 'native-base';
-//import HeaderComponent from './Header/header';
+import { StyleSheet, Image } from 'react-native';
+import { Header, Left, Body, Right, Button, Icon, Title, Drawer, Grid, Col, Text, Footer, Row, Content } from 'native-base';
 import SideBar from './../../Component/SideBar/sidebar';
 import Carousel from './../../Component/Carousel/Carousel';
-import styled from 'styled-components/native'
 import CardShoe from './../../Component/CardShoe/CardShoe';
-import ActionButton from 'react-native-action-button';
 import BottomNavigation from '../../Component/Common/BottomNavigation/BottomNavigation';
 
 export default class HomeScreen extends Component {
@@ -16,6 +13,7 @@ export default class HomeScreen extends Component {
   openDrawer() {
     this.drawer._root.open()
   };
+
 
   render() {
 
@@ -36,16 +34,10 @@ export default class HomeScreen extends Component {
           <Body>
             <Title>Shoe style</Title>
           </Body>
-          <Right>
-            {/* <Button transparent onPress={()=> this.openDrawer()}>
-                <Icon name='ios-menu' size={30} />
-              </Button> */}
-          </Right>
+
         </Header>
         <Content>
-          {
-            Carousel
-          }
+          <Carousel nav={this.props.navigation} />
           <Grid>
             <Row>
               <Col style={{ height: 70, alignItems: 'center' }}>

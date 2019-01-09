@@ -17,7 +17,7 @@ class PopularListShoe extends Component {
                     </Row>
                     <Row style={{ marginTop: 3, marginBottom: 5 }}>
                         <Col style={{ height: 240, backgroundColor: 'white', marginRight: 4, width: '50%' }}>
-                            <CardShoe company="Nike" name="AIR JORDAN 1" gender="Nam" price="$600" img="https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/805570_4.jpg" />
+                            <CardShoe company="Nike" name="AIR JORDAN 1" gender="Nam" price="$600" img="https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/805570_1.jpg" />
                         </Col>
                     </Row>
                 </Grid>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Body, Right, Button, Title, Icon, Content, Grid, Col, } from 'native-base';
+import { Container, Header, Left, Body, Right, Button, Title, Icon, Content, Grid, Col, Footer } from 'native-base';
 import { Platform, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
 export default class SideBar extends Component {
@@ -11,7 +11,8 @@ export default class SideBar extends Component {
         menu4: false,
         menu5: false,
         menu6: false,
-        menu7: false
+        menu7: false,
+        menu8: false
     }
     showMenu(value) {
         if (value === 1) {
@@ -28,6 +29,8 @@ export default class SideBar extends Component {
             this.setState({ menu6: !this.state.menu6 })
         } else if (value === 7) {
             this.setState({ menu7: !this.state.menu7 })
+        } else if (value === 8) {
+            this.setState({ menu8: !this.state.menu8 })
         }
     }
 
@@ -206,6 +209,27 @@ export default class SideBar extends Component {
                     <TouchableOpacity style={styles.otherItem} onPress={this.toDetail}>
                         <Text style={styles.itemMenuLv2Text}>Tất cả giày</Text>
                     </TouchableOpacity>
+                    <View style={{ width: '100%', height: 150, backgroundColor: '#001529', borderBottomWidth: 0.5, borderColor: '#676E74', }} />
+                    <TouchableOpacity style={styles.aboutContainer} onPress={() => { this.showMenu(8) }}>
+                        <Text style={styles.aboutText}>Thông tin cừa hàng và dịch vụ</Text>
+                        <Icon name='ios-arrow-down' size={30} style={styles.arrowDropDown} />
+                    </TouchableOpacity>
+                    {
+                        this.state.menu8 ?
+                            <View style={styles.container}>
+                                <TouchableOpacity style={styles.itemMenulv2Container}>
+                                    <Text style={styles.itemMenuLv2Text}>Thông tin cửa hàng</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.itemMenulv2Container}>
+                                    <Text style={styles.itemMenuLv2Text}>FAQ</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.itemMenulv2Container}>
+                                    <Text style={styles.itemMenuLv2Text}>CSKH</Text>
+                                </TouchableOpacity>
+                            </View>
+                            : <View />
+                    }
+
                 </View>
             </Content>
         );
@@ -215,6 +239,27 @@ export default class SideBar extends Component {
 
 
 const styles = StyleSheet.create({
+    aboutContainer: {
+        marginTop: 10,
+        borderColor: '#676E74',
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomWidth: 0.5,
+
+    },
+    aboutText: {
+        fontFamily: 'Righteous',
+        flex: 1,
+        justifyContent: 'flex-start',
+        marginLeft: 3,
+        marginBottom: 3,
+        fontSize: 14,
+        fontWeight: '800',
+        color: '#676E74',
+        fontStyle: 'italic'
+    },
     otherItem: {
         marginTop: 10,
 
@@ -238,12 +283,12 @@ const styles = StyleSheet.create({
     itemMenuLv1Text: {
         fontSize: 18,
         fontWeight: '400',
-        fontFamily: 'Righteous',
+        fontFamily: 'Righteous, cursive',
         color: 'white',
         flex: 1,
         justifyContent: 'flex-start',
         marginLeft: 3,
-        marginBottom: 3
+        marginBottom: 3,
     },
     arrowDropDown: {
         color: '#676E74',

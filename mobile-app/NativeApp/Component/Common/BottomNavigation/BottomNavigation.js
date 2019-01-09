@@ -52,10 +52,14 @@ export default BottomNatigation;
 const styles = StyleSheet.create({
 
     buttonStyle: {
-        backgroundColor: '#393939'
+        backgroundColor: '#393939',
+        borderColor: 'white',
+        borderLeftWidth: 0.45,
     },
     buttonStyleBlack: {
-        backgroundColor: '#0F0F0F'
+        backgroundColor: '#0F0F0F',
+        borderColor: 'white',
+        borderLeftWidth: 0.45,
     },
     
 });

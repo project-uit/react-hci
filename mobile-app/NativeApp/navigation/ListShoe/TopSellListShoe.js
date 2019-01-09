@@ -20,7 +20,7 @@ class TopSellListShoe extends Component {
                             <CardShoe company="Nike" name="AIR JORDAN 1 RETRO" gender="Nam" price="$200" img="https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/802799_01.jpg" />
                         </Col>
                         <Col style={{ height: 240, backgroundColor: 'white' }}>
-                            <CardShoe company="Nike" name="PW SOLAR HU NMD" gender="Nam" price="$340" img="https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/805370_01.jpg" />
+                            <CardShoe company="Nike" name="PW SOLAR HU NMD" gender="Nam" price="$340" img="https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/805266_02.jpg" />
                         </Col>
                     </Row>
                 </Grid>
