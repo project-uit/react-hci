@@ -63,12 +63,12 @@ class Footer extends Component {
                 <hr />
                 <div className="container-fluid text-left">
                     <div className="row p">
-                        <div class="col-md-8">
+                        <div className="col-md-8">
                             <span>Địa chỉ đăng ký kinh doanh: 10 Nguyễn Văn Cừ, P.1, Q.1, TpHCM - Điện thoại: 028 3868 4857</span>
                             <br />
                             <span>Giấy CNĐKDN: 0310874914 – Ngày cấp: 25/11/2011 - Cơ quan cấp: Phòng Đăng Ký Kinh Doanh – Sở Kế Hoạch và Đầu Tư TP.HCM</span>
                         </div>
-                        <div class="col-md-4">
+                        <div className="col-md-4">
                             <img src="http://localhost:3000/Images/dangkybocongthuong.png" alt="" width="150" className="float-right" />
                         </div>
                     </div>

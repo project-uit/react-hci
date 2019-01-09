@@ -58,7 +58,7 @@
     background-color: #C4C4C4;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a black background */
 .btn-size input:checked ~ .checkmark {
     background-color: #000000;
 }

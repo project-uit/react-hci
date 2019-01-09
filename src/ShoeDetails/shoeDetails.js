@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./shoeDetails.css";
 import styles from "../RangeSlider/styles.css";
-import { Button, Row, Col, Rate } from "antd";
+import { Button, Row, Col, Rate, Comment, Icon, Tooltip, Avatar, List, Input as InputAnt, Form } from "antd";
 import { Slider as RangeSlider } from 'reactrangeslider';
 import Slider from "react-slick";
+import moment from 'moment';
 import {
   Carousel,
   CarouselItem,
@@ -64,10 +65,54 @@ const favorite_items = [
   }
 ];
 
+const TextArea = InputAnt.TextArea;
+
+const CommentList = ({ comments }) => (
+  <List
+    dataSource={comments}
+    header={`${comments.length+2} ${comments.length > 1 ? 'replies' : 'reply'}`}
+    itemLayout="horizontal"
+    renderItem={props => <Comment {...props} />}
+  />
+);
+
+const Editor = ({
+  onChange, onSubmit, submitting, value,
+}) => (
+  <div>
+    <Rate />
+    <Form.Item>
+      <TextArea rows={4} onChange={onChange} value={value} />
+    </Form.Item>
+    <Form.Item>
+      <Button
+        htmlType="submit"
+        loading={submitting}
+        onClick={onSubmit}
+        type="primary"
+      >
+        Thêm bình luận
+      </Button>
+    </Form.Item>
+  </div>
+);
+
 class ShoeDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0, collapse: false, selected: 'radio37' };
+    this.state = {
+      activeIndex: 0,
+      collapse: false,
+      selected: 'radio37',
+
+      likes: 0,
+      dislikes: 0,
+      action: null,
+
+      comments: [],
+      submitting: false,
+      value: '',
+    };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
@@ -105,9 +150,91 @@ class ShoeDetails extends Component {
     this.setState({ activeIndex: newIndex });
   }
 
+  like = () => {
+    this.setState({
+      likes: 1,
+      dislikes: 0,
+      action: 'liked',
+    });
+  }
+
+  dislike = () => {
+    this.setState({
+      likes: 0,
+      dislikes: 1,
+      action: 'disliked',
+    });
+  }
+
+  handleSubmit = () => {
+    if (!this.state.value) {
+      return;
+    }
+
+    this.setState({
+      submitting: true,
+    });
+
+    setTimeout(() => {
+      this.setState({
+        submitting: false,
+        value: '',
+        comments: [
+          {
+            actions: ([
+              <span>
+                  <Tooltip title="Like">
+                  <Icon
+                    type="like"
+                    theme= 'outlined'
+                    onClick={this.like}
+                  />
+                  </Tooltip>
+                    <span style={{ paddingLeft: 8, cursor: 'auto' }}>
+                      0
+                    </span>
+                  </span>,
+                <span>
+                  <Tooltip title="Dislike">
+                  <Icon
+                    type="dislike"
+                    theme='outlined'
+                    onClick={this.dislike}
+                    />
+                  </Tooltip>
+                  <span style={{ paddingLeft: 8, cursor: 'auto' }}>
+                    0
+                  </span>
+                </span>,
+                <span>Reply to</span>
+            ]),
+            author: 'Hao Nguyen',
+            avatar: 'http://localhost:3000/Images/my-avatar.png',
+            content:(
+              <div>
+                <Rate allowHalf defaultValue={5} disabled />
+                <p>{this.state.value}</p>
+                <img src="http://localhost:3000/Images/nike roshe flyknit-real.jpg" alt="" className="img-thumbnail img-comment"></img>
+              </div>         
+            ),
+            datetime: moment().fromNow(),
+          },
+          ...this.state.comments,
+        ],
+      });
+    }, 1000);
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
+  }
 
   render() {
     const { activeIndex } = this.state;
+    const { likes, dislikes, action } = this.state;
+    const { comments, submitting, value } = this.state;
 
     const slides = items.map((item) => {
       return (
@@ -161,6 +288,34 @@ class ShoeDetails extends Component {
       );
     });
 
+    const actions = [
+      <span>
+        <Tooltip title="Like">
+          <Icon
+            type="like"
+            theme={action === 'liked' ? 'filled' : 'outlined'}
+            onClick={this.like}
+          />
+        </Tooltip>
+        <span style={{ paddingLeft: 8, cursor: 'auto' }}>
+          {likes}
+        </span>
+      </span>,
+      <span>
+        <Tooltip title="Dislike">
+          <Icon
+            type="dislike"
+            theme={action === 'disliked' ? 'filled' : 'outlined'}
+            onClick={this.dislike}
+          />
+        </Tooltip>
+        <span style={{ paddingLeft: 8, cursor: 'auto' }}>
+          {dislikes}
+        </span>
+      </span>,
+      <span>Reply to</span>,
+    ];
+
     return (
       <div className="container gray-bg">
         <Row>
@@ -185,7 +340,7 @@ class ShoeDetails extends Component {
                       Giày nam
                     </h6>
                     <h5 className="text-center shoe-title">
-                      Nike Air Max 95 SE
+                      Nike roshe run flyknit wolf grey
                     </h5>
                     <h6>
                       Chọn Size
@@ -264,8 +419,8 @@ class ShoeDetails extends Component {
 
                 <Row className="mt-3 pl-3 text-justify">
                   <p className="font-weight-bold">
-                    The Nike Air Max 95 made its mark as the first shoe to include visible 
-                    Nike Air cushioning in the forefoot. The Nike Air Max 95 SE Men's 
+                    The Nike Roshe made its mark as the first shoe to include visible 
+                    Nike Roshe cushioning in the forefoot. The Nike Roshe Men's 
                     Shoe energises the iconic design with updated materials in a variety of textures and accents.
                     <br></br>
                     <br></br>
@@ -335,26 +490,61 @@ class ShoeDetails extends Component {
 
               <Col className="pl-3" xs={24} sm={24} md={15} lg={15}>
                 <div className="comment p-3">
-                  <h4>Best Shoes Ever</h4>
-                  <Rate allowHalf defaultValue={5} disabled />
-                  <p>
-                    <p>Giày mang rất thoải mái, kiểu dáng này là loại mà mình thích nhất, mình thường mang để chơi thể thao vào mỗi sáng sớm
-                      rất êm, thực sự rất tốt. Shiper rất nhanh, nhiệt tình và vui vẻ, mình rất thích việc shop cho gửi hàng đến tận nơi rồi mới
-                      thanh toán, rất tiện dụng!
-                    </p>
-                    <img src="http://localhost:3000/Images/nike roshe flyknit-real.jpg" alt="" className="img-thumbnail img-comment"></img>
-                  </p>
+                  {comments.length > 0 && <CommentList comments={comments} />}
+                  <Comment
+                    actions={actions}
+                    author={<a>Messi</a>}
+                    avatar={(
+                      <Avatar
+                        src="http://localhost:3000/Images/avatar.jpg"
+                        alt="Messi"
+                      />
+                    )}
+                    content={(
+                      <div>
+                        <Rate allowHalf defaultValue={5} disabled />
+                        <p>Giày mang rất thoải mái, kiểu dáng này là loại mà mình thích nhất, mình thường mang để chơi thể thao vào mỗi sáng sớm
+                        rất êm, thực sự rất tốt. Shiper rất nhanh, nhiệt tình và vui vẻ, mình rất thích việc shop cho gửi hàng đến tận nơi rồi mới
+                        thanh toán, rất tiện dụng!
+                        </p>
+                        <img src="http://localhost:3000/Images/nike roshe flyknit-real.jpg" alt="" className="img-thumbnail img-comment"></img>
+                      </div>         
+                    )}
+                    datetime={(
+                      <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                        <span>{moment().fromNow()}</span>
+                      </Tooltip>
+                    )}
+                  />
                 </div>
                 
                 <Collapse id="collapseExample" isOpen={this.state.collapse}>
                   <div className="comment p-3">
-                    <h4>Good Shoes</h4>
-                    <Rate allowHalf defaultValue={4.5} disabled />
-                    <p>Giày thoải mái nhất mà tôi đã từng đi, nó chỉ cần lót thêm đệm để mang đến cho bạn một trải nghiệm hoàn hảo.
-                    Chưa kể trông nó còn rất đẹp. Chúng có màu sáng hơn một chút so với hình ảnh, nhưng tôi 
-                    thực sự thích chúng theo cách này nhiều hơn!
-                    </p>
-                    <img src="http://localhost:3000/Images/Nike-Flyknit-Roshe-Run-Charcoal-real-2.jpg" alt="" className="img-thumbnail img-comment"></img>
+                    <Comment
+                      actions={actions}
+                      author={<a>Ronaldo</a>}
+                      avatar={(
+                        <Avatar
+                          src="http://localhost:3000/Images/avatar2.png"
+                          alt="Ronaldo"
+                        />
+                      )}
+                      content={(
+                        <div>
+                          <Rate allowHalf defaultValue={4.5} disabled />
+                          <p>Giày thoải mái nhất mà tôi đã từng đi, nó chỉ cần lót thêm đệm để mang đến cho bạn một trải nghiệm hoàn hảo.
+                          Chưa kể trông nó còn rất đẹp. Chúng có màu sáng hơn một chút so với hình ảnh, nhưng tôi 
+                          thực sự thích chúng theo cách này nhiều hơn!
+                          </p>
+                          <img src="http://localhost:3000/Images/Nike-Flyknit-Roshe-Run-Charcoal-real-2.jpg" alt="" className="img-thumbnail img-comment"></img>
+                        </div>         
+                      )}
+                      datetime={(
+                        <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                          <span>{moment().fromNow()}</span>
+                        </Tooltip>
+                      )}
+                    />
                   </div>
                 </Collapse>
                 <Row className="d-flex justify-content-end mb-3">
@@ -370,7 +560,28 @@ class ShoeDetails extends Component {
               </Col>
             </Row>
           </Col>
-        
+          {/* Comment */}
+          <Col className="mb-3" xs={24} sm={24} md={24} lg={24}>
+            <div>
+              <Comment
+                avatar={(
+                  <Avatar
+                  src="http://localhost:3000/Images/my-avatar.png"
+                  alt="Hao Nguyen"
+                  />
+                )}
+                content={(
+                  <Editor
+                    onChange={this.handleChange}
+                    onSubmit={this.handleSubmit}
+                    submitting={submitting}
+                    value={value}
+                  />
+                )}
+               />
+              </div>
+          </Col>
+
           {/* San pham quan tam */}
           <Col className="mb-3" xs={24} sm={24} md={24} lg={24}>
             <h3 className="d-flex justify-content-center"> Sản phẩm có thể bạn quan tâm </h3>
