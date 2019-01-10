@@ -58,7 +58,7 @@ export default class Register extends Component {
                                 </CardItem>
                             </Right>
                         </CardItem>
-                        <Button block dark onPress={this.gotoProfile}>
+                        <Button block primary onPress={this.gotoProfile}>
                             <Text>Đăng ký</Text>
                         </Button>
                     </Card>

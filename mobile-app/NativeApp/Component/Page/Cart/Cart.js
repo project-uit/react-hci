@@ -25,7 +25,7 @@ export default class Cart extends Component {
   render() {
     return (
       <Container>
-        <Header style={{backgroundColor: '#0F0F0F'}}>
+        <Header style={{ backgroundColor: '#0F0F0F' }}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.goBack()}>
               <Icon name='arrow-back' />
@@ -37,71 +37,6 @@ export default class Cart extends Component {
           <Right />
         </Header>
         <Content>
-          <Card>
-            <CardItem header bordered style={{ backgroundColor: 'black' }}>
-              <Text style={styles.titleText}>Sản phẩm đã thêm</Text>
-            </CardItem>
-            <List>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail square source={{ uri: 'https://www.flightclub.com/media/catalog/product/cache/1/thumbnail/240x170/9df78eab33525d08d6e5fb8d27136e95/2/0/201536_1.jpg' }} />
-                </Left>
-                <Body>
-                  <Text>Yeezy Boost 350 V2 </Text>
-                  <Text note numberOfLines={1}>Màu: Cblack/Red/Cblack</Text>
-                  <Text note numberOfLines={1}>Size: 9</Text>
-                  <Text note numberOfLines={1}>Giá: 950$</Text>
-                  <Text note numberOfLines={1}>Số lượng:</Text>
-                  <NumericInput
-                    initValue={1}
-                    minValue={1}
-                    totalWidth={100}
-                    totalHeight={20}
-                    iconSize={5}
-                    valueType='integer'
-                    rounded
-                    iconStyle={{ color: 'black' }} />
-                </Body>
-                <Right>
-                  <Text><Icon name='trash' style={{ fontSize: 20, color: 'red' }} /></Text>
-                  <Right style={{
-                    justifyContent: 'center', alignItems: 'center'
-                  }}>
-                    <Text>980$</Text>
-                  </Right>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail square source={{ uri: 'https://www.flightclub.com/media/catalog/product/cache/1/thumbnail/240x170/9df78eab33525d08d6e5fb8d27136e95/2/0/201536_1.jpg' }} />
-                </Left>
-                <Body>
-                  <Text>Yeezy Boost 350 V2 </Text>
-                  <Text note numberOfLines={1}>Màu: Cblack/Red/Cblack</Text>
-                  <Text note numberOfLines={1}>Size: 9</Text>
-                  <Text note numberOfLines={1}>Giá: 950$</Text>
-                  <Text note numberOfLines={1}>Số lượng:</Text>
-                  <NumericInput
-                    initValue={1}
-                    minValue={1}
-                    totalWidth={100}
-                    totalHeight={20}
-                    iconSize={5}
-                    valueType='integer'
-                    rounded
-                    iconStyle={{ color: 'black' }} />
-                </Body>
-                <Right>
-                  <Text><Icon name='trash' style={{ fontSize: 20, color: 'red' }} /></Text>
-                  <Right style={{
-                    justifyContent: 'center', alignItems: 'center'
-                  }}>
-                    <Text>980$</Text>
-                  </Right>
-                </Right>
-              </ListItem>
-            </List>
-          </Card>
           <Card>
             <CardItem header bordered style={{ backgroundColor: 'black' }}>
               <Text style={styles.titleText}>Tổng quan</Text>
@@ -128,9 +63,78 @@ export default class Cart extends Component {
                 <Input placeholder='Nhập mã giảm giá' />
               </Item>
             </CardItem>
-            <Button block dark onPress={this.gotoCheckout}>
-              <Text style={styles.buttonText}>Thanh toán</Text>
-            </Button>
+          </Card>
+          <Card>
+            <CardItem header bordered style={{ backgroundColor: 'black' }}>
+              <Text style={styles.titleText}>Sản phẩm đã thêm</Text>
+            </CardItem>
+            <View style={{ flex: 1 }}>
+              <List>
+                <ListItem avatar>
+                  <Left>
+                    <Thumbnail square source={{ uri: 'https://www.flightclub.com/media/catalog/product/cache/1/thumbnail/240x170/9df78eab33525d08d6e5fb8d27136e95/2/0/201536_1.jpg' }} />
+                  </Left>
+                  <Body>
+                    <Text>Yeezy Boost 350 V2 </Text>
+                    <Text note numberOfLines={1}>Màu: Cblack/Red/Cblack</Text>
+                    <Text note numberOfLines={1}>Size: 9</Text>
+                    <Text note numberOfLines={1}>Giá: 950$</Text>
+                    <Text note numberOfLines={1}>Số lượng:</Text>
+                    <NumericInput
+                      initValue={1}
+                      minValue={1}
+                      totalWidth={100}
+                      totalHeight={20}
+                      iconSize={5}
+                      valueType='integer'
+                      rounded
+                      iconStyle={{ color: 'black' }} />
+                  </Body>
+                  <Right>
+                    <Text><Icon name='trash' style={{ fontSize: 20, color: 'red' }} /></Text>
+                    <Right style={{
+                      justifyContent: 'center', alignItems: 'center'
+                    }}>
+                      <Text>980$</Text>
+                    </Right>
+                  </Right>
+                </ListItem>
+                <ListItem avatar>
+                  <Left>
+                    <Thumbnail square source={{ uri: 'https://www.flightclub.com/media/catalog/product/cache/1/thumbnail/240x170/9df78eab33525d08d6e5fb8d27136e95/2/0/201536_1.jpg' }} />
+                  </Left>
+                  <Body>
+                    <Text>Yeezy Boost 350 V2 </Text>
+                    <Text note numberOfLines={1}>Màu: Cblack/Red/Cblack</Text>
+                    <Text note numberOfLines={1}>Size: 9</Text>
+                    <Text note numberOfLines={1}>Giá: 950$</Text>
+                    <Text note numberOfLines={1}>Số lượng:</Text>
+                    <NumericInput
+                      initValue={1}
+                      minValue={1}
+                      totalWidth={100}
+                      totalHeight={20}
+                      iconSize={5}
+                      valueType='integer'
+                      rounded
+                      iconStyle={{ color: 'black' }} />
+                  </Body>
+                  <Right>
+                    <Text><Icon name='trash' style={{ fontSize: 20, color: 'red' }} /></Text>
+                    <Right style={{
+                      justifyContent: 'center', alignItems: 'center'
+                    }}>
+                      <Text>980$</Text>
+                    </Right>
+                  </Right>
+                </ListItem>
+              </List>
+              <View>
+                <Button block primary onPress={this.gotoCheckout}>
+                  <Text style={styles.buttonText}>Thanh toán</Text>
+                </Button>
+              </View>
+            </View>
           </Card>
         </Content>
         <Footer>

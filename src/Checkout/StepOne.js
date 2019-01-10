@@ -140,7 +140,7 @@ class AddressForm extends Component {
                         <Radio.Button value="fast">Nhanh</Radio.Button>
                     </Radio.Group>
                 </FormItem>
-                <Button type="primary" onClick={this.next} className="float-right">Bước tiếp</Button>
+                <Button type="primary" onClick={this.next} className="float-right"> tiếp</Button>
             </Form>
         );
     }

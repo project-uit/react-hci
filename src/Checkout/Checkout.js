@@ -130,7 +130,7 @@ class Checkout extends Component {
                                     &&
                                     (
                                         <Button disabled={paid} onClick={() => this.prev()}>
-                                            Quay lại
+                                            quay lại
                                         </Button>
                                     )
                                 }

@@ -52,7 +52,7 @@ export default class Login extends Component {
                                 </CardItem>
                             </Right>
                         </CardItem>
-                        <Button block dark>
+                        <Button block primary>
                             <Text>Đăng nhập</Text>
                         </Button>
                     </Card>
