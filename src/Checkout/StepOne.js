@@ -100,7 +100,7 @@ class AddressForm extends Component {
 
                 <FormItem
                     {...formItemLayout}
-                    label="Phone Number">
+                    label="Số điện thoại">
                     {getFieldDecorator('phone', {
                         rules: [{
                             required: true, message: 'Số điện thoại không được trống!',
@@ -140,7 +140,7 @@ class AddressForm extends Component {
                         <Radio.Button value="fast">Nhanh</Radio.Button>
                     </Radio.Group>
                 </FormItem>
-                <Button type="primary" onClick={this.next} className="float-right"> tiếp</Button>
+                <Button type="primary" onClick={this.next} className="float-right">Tiếp tục</Button>
             </Form>
         );
     }

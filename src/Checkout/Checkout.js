@@ -12,7 +12,7 @@ const cartData = [
     {
         brand: 'Nike',
         name: 'Nike Air Max 97 Og Qs "2017 Release"',
-        size: '9',
+        size: '37',
         price: '220',
         quantity: '2',
         img: 'https://www.flightclub.com/media/catalog/product/cache/1/thumbnail/240x170/9df78eab33525d08d6e5fb8d27136e95/8/0/800914_1.jpg'
@@ -20,7 +20,7 @@ const cartData = [
     {
         brand: 'AIR JORDAN',
         name: 'AIR JORDAN 11 RETRO "WIN LIKE ’96"',
-        size: '8.5',
+        size: '39',
         price: '350',
         quantity: '1',
         img: 'https://www.flightclub.com/media/catalog/product/cache/1/thumbnail/240x170/9df78eab33525d08d6e5fb8d27136e95/8/0/802269_01.jpg'
@@ -151,21 +151,21 @@ class Checkout extends Component {
                                     <div>
                                         <Row>
                                             <Col span={12}><h5>Tổng: </h5></Col>
-                                            <Col span={12}><h5 className="float-right">{summary}$</h5></Col>
+                                            <Col span={12}><h5 className="float-right">${summary}</h5></Col>
                                         </Row>
                                     </div>
                                 }
                                 renderItem={item => (
                                     <List.Item
-                                        extra={<h5>{item.price * item.quantity} $</h5>}
+                                        extra={<h5>${item.price * item.quantity} </h5>}
                                     >
                                         <List.Item.Meta
                                             avatar={<Badge count={item.quantity}><Avatar className="wrapper" shape='square' size={100} src={item.img} /></Badge>}
                                             title={<a href="/"> <b>{item.name}</b></a>}
                                             description={
                                                 <div>
-                                                    <b>Size: {item.brand}</b><br />
-                                                    <b>Giá: {item.price} $</b>
+                                                    <b>Size: {item.size}</b><br />
+                                                    <b>Giá: ${item.price} </b>
                                                 </div>
                                             }
                                         />

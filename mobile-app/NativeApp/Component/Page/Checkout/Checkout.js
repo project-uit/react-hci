@@ -55,7 +55,11 @@ export default class Checkout extends Component {
 
                             <Form>
                                 <Item stackedLabel>
-                                    <Label>Tên</Label>
+                                    <Label>Email</Label>
+                                    <Input />
+                                </Item>
+                                <Item stackedLabel>
+                                    <Label>Tên khách hàng</Label>
                                     <Input />
                                 </Item>
                                 <Item stackedLabel>
@@ -63,11 +67,7 @@ export default class Checkout extends Component {
                                     <Input />
                                 </Item>
                                 <Item stackedLabel>
-                                    <Label>Địa chỉ</Label>
-                                    <Input />
-                                </Item>
-                                <Item stackedLabel>
-                                    <Label>Ghi chú</Label>
+                                    <Label>Địa chỉ </Label>
                                     <Input />
                                 </Item>
                                 <Text></Text>

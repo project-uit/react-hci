@@ -76,7 +76,6 @@ export default class Cart extends Component {
                   </Left>
                   <Body>
                     <Text>Yeezy Boost 350 V2 </Text>
-                    <Text note numberOfLines={1}>Màu: black</Text>
                     <Text note numberOfLines={1}>Size: 37</Text>
                     <Text note numberOfLines={1}>Giá: $220</Text>
                     <Text note numberOfLines={1}>Số lượng:</Text>
@@ -105,7 +104,6 @@ export default class Cart extends Component {
                   </Left>
                   <Body>
                     <Text>Yeezy Boost 350 V2 </Text>
-                    <Text note numberOfLines={1}>Màu: black</Text>
                     <Text note numberOfLines={1}>Size: 39</Text>
                     <Text note numberOfLines={1}>Giá: $220</Text>
                     <Text note numberOfLines={1}>Số lượng:</Text>
