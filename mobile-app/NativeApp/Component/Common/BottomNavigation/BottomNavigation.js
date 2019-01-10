@@ -23,6 +23,10 @@ class BottomNatigation extends Component {
         this.props.navigation.navigate('Login')
     }
 
+    gotoSupport = () => {
+        this.props.navigation.navigate('Support')
+    }
+
     render() {
         const { selectedScreen } = this.props;
         return (
@@ -40,7 +44,7 @@ class BottomNatigation extends Component {
                 <Button style={selectedScreen == 'Profile' ? styles.buttonStyle : styles.buttonStyleBlack} vertical onPress={this.gotoProfile}>
                     <Icon name="person" style={{ color: 'white' }} />
                 </Button>
-                <Button style={selectedScreen == 'Chat' ? styles.buttonStyle : styles.buttonStyleBlack} vertical onPress={this.gotoProfile}>
+                <Button style={selectedScreen == 'Chat' ? styles.buttonStyle : styles.buttonStyleBlack} vertical onPress={this.gotoSupport}>
                     <Icon name="chatboxes" style={{ color: 'white' }} />
                 </Button>
             </FooterTab>
