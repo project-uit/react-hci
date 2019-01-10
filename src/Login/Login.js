@@ -40,7 +40,7 @@ class Login extends Component {
                     )}
                     <Link className="float-right" to="/">Quên mật khẩu</Link><br/>
                     <Button type="primary" htmlType="submit" className="btnLogin">Đăng nhập</Button><br/>
-                    Chưa có tài khoản ? <Link to="/">Đăng kí</Link>
+                    Chưa có tài khoản ? <Link to="/dang-ky">Đăng kí</Link>
                 </Form.Item>
             </Form>
         );

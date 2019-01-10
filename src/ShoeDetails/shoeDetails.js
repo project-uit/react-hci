@@ -157,7 +157,9 @@ class ShoeDetails extends Component {
     })
   }
   toggle() {
+
     this.setState({ collapse: !this.state.collapse });
+
   }
 
   onExiting() {
@@ -548,7 +550,7 @@ class ShoeDetails extends Component {
                 {/* Su thoai mai */}
                 <p className="font-weight-bold h5 mt-3">Sự thoải mái</p>
                 <RangeSlider
-               
+
                   step={2}
                   disabled
                   defaultValue={95}
@@ -586,6 +588,7 @@ class ShoeDetails extends Component {
                 <div className="comment p-3">
                   {comments.length > 0 && <CommentList comments={comments} />}
                   <Comment
+                    key="11"
                     actions={actions}
                     author={<a>Messi</a>}
                     avatar={(
@@ -615,6 +618,7 @@ class ShoeDetails extends Component {
                 <Collapse id="collapseExample" isOpen={this.state.collapse}>
                   <div className="comment p-3">
                     <Comment
+                      key="1"
                       actions={actions}
                       author={<a>Ronaldo</a>}
                       avatar={(
@@ -642,7 +646,7 @@ class ShoeDetails extends Component {
                   </div>
                 </Collapse>
                 <Row className="d-flex justify-content-end mb-3">
-                  <a href="#collapseExample" className="btn p mt-0 right" aria-expanded={this.state.collapse} onClick={this.toggle}>
+                  <a href="javascript:void(0);" className="btn p mt-0 right" aria-expanded={this.state.collapse} onClick={this.toggle}>
                     <span className="collapsed" isOpen={this.state.collapse}>
                       Xem thêm bình luận
                     </span>

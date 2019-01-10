@@ -52,6 +52,9 @@ class ListShoe extends Component {
             chkBoxColor: items
         })
     }
+    gotoDetailShoe = () => {
+        this.props.history.push('/chi-tiet-giay');
+    }
     render() {
         const device = this.uagent.search("iphone") > -1 || this.uagent.search("android") > -1 || this.uagent.search('ipad') > -1;
         return (
@@ -315,10 +318,10 @@ class ListShoe extends Component {
                                         <Row gutter={16} >
                                             {/* 1 */}
                                             <Col xs={24} sm={12} md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                                <CardShoe img="/Images/805264_01.jpg" company="Adidas" name="YEEZY BOOST 350 V2" money="$200" gender="Nam" />
+                                                <CardShoe clickShoe={this.gotoDetailShoe} img="/Images/805264_01.jpg" company="Adidas" name="YEEZY BOOST 350 V2" money="$200" gender="Nam" />
                                             </Col>
                                             <Col xs={24} sm={12} md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
-                                                <CardShoe img="/Images/802390_01.jpg" company="Adidas" name="YEEZY BOOST 350 V2" money="$350" gender="Nam" />
+                                                <CardShoe img="/Images/802390_01.jpg" company="Adidas" name="YEEZY BOOST 350 V2" money="$350" gender="Nữ" />
                                             </Col>
                                             <Col xs={24} sm={12} md={12} lg={12} xl={6} style={{ marginBottom: 8 }}>
                                                 <CardShoe img="/Images/804104_01.jpg" company="Adidas" name="TUBULAR NOVA PK" money="$400" gender="Nam" />

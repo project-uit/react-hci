@@ -3,6 +3,7 @@ import './Signup.css';
 import { Row, Checkbox } from 'antd';
 import { Col, Button as ButtonAnt } from 'antd';
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class SignupForm extends Component {
 
@@ -55,8 +56,9 @@ class LoginForm extends Component {
                         <Input className='text-box' type="password" id="exampleEmail" placeholder="" />
                     </FormGroup>
                     <br />
-                    <p>QUÊN TÀI KHOẢN ?</p>
-                    <ButtonAnt type="primary" htmlType="submit" className="btnLogin">Đăng nhập</ButtonAnt>
+                    <Link to="/" >QUÊN MẬT KHẨU ?</Link>
+                    
+                    <ButtonAnt type="primary" htmlType="submit" className="btnLogin" style={{marginTop: 15}}>Đăng nhập</ButtonAnt>
                 </Form>
             </div>
         );

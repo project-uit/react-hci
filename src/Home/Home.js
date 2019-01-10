@@ -19,6 +19,9 @@ class Home extends Component {
     imgClick = () => {
 
     }
+    gotoDetailShoe = () => {
+        this.props.history.push('/chi-tiet-giay');
+    }
     render() {
         const settings1 = {
             dots: false,
@@ -64,7 +67,7 @@ class Home extends Component {
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={24} className="silde-border">
                         <Slider {...settings2} >
-                            <div className="hand-pointer">
+                            <div className="hand-pointer" onClick={this.gotoDetailShoe}>
                                 <Row>
                                     <Col xs={12}>
                                         <img src="/Images/804354_1.jpg" alt="" className="img-carousel" />
