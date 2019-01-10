@@ -140,7 +140,7 @@ class HeaderStore extends Component {
               <a className="icon-size" key="yun" onClick={this.openLogin}> <Icon type="login" /></a>
             </Badge>
             <Badge count={5} className="float-right  mr-4">
-              <a className=" icon-size"><Icon type="shopping-cart" /></a>
+              <Link className=" icon-size" to="/cart" style={{color: 'black'}}><Icon type="shopping-cart" /></Link>
             </Badge>
           </Col>
         </Row>

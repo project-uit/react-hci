@@ -80,6 +80,11 @@ class Checkout extends Component {
         this.setState({ current });
     }
 
+    gotoCart = () => {
+   
+        this.props.history.push('/cart')
+      }
+
     render() {
         const { current, shipMethod, customer, total, discount, paymentMethod, paid } = this.state;
         const summary = cartData.reduce(function (accumulator, currentValue) {
