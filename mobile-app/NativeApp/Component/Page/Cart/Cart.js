@@ -129,7 +129,11 @@ export default class Cart extends Component {
               </List>
               <View>
                 <Button block primary onPress={this.gotoCheckout}>
-                  <Text style={styles.buttonText}>Thanh toán</Text>
+                  <Text style={styles.buttonText}>Thành viên thanh toán</Text>
+                </Button>
+                <Text></Text>
+                <Button block warning onPress={this.gotoCheckout}>
+                  <Text style={styles.buttonText}>Khách thanh toán</Text>
                 </Button>
               </View>
             </View>
