@@ -119,7 +119,7 @@ export default class Checkout extends Component {
                                 </Body>
                             </ListItem>
                         </Card>
-                        <Button block primary onPress={this.gotoCheckoutSuccess}>
+                        <Button block style={{backgroundColor: '#40A9FF'}} onPress={this.gotoCheckoutSuccess}>
                             <Text>Đặt hàng</Text>
                         </Button>
                     </ScrollView>

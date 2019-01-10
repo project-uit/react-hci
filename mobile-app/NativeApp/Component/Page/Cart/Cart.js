@@ -128,12 +128,11 @@ export default class Cart extends Component {
                 </ListItem>
               </List>
               <View>
-                <Button block primary onPress={this.gotoCheckout}>
-                  <Text style={styles.buttonText}>Thành viên thanh toán</Text>
+                <Button block style={{backgroundColor: '#E7B98F', borderRadius: 5, margin: 3}} onPress={this.gotoCheckout}>
+                  <Text >Guest thanh toán</Text>
                 </Button>
-                <Text></Text>
-                <Button block warning onPress={this.gotoCheckout}>
-                  <Text style={styles.buttonText}>Khách thanh toán</Text>
+                <Button block style={{backgroundColor: '#59BAB1', borderRadius: 5,  margin: 3}} onPress={this.gotoCheckout}>
+                  <Text >Member thanh toán</Text>
                 </Button>
               </View>
             </View>

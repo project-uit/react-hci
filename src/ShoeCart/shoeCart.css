@@ -41,7 +41,7 @@
 /* --End Slick slider-- */
 
 .summary-container{
-    padding: 10px 50px 30px 50px;
+    padding: 10px 30px 10px 30px;
     background-color: #000000; 
 }
 
@@ -78,7 +78,7 @@
   }
 
 .cart{
-    margin-right: 30px;  
+   
     background-color: #EEEEEE;
 }
 
@@ -95,12 +95,14 @@
 .card-purchase{
     margin: 15px 15px 15px 15px;
     border-top: 2px solid #fff;
+    
+
 }
 
 .shoe-name{
     font-family: 'Righteous', cursive;
     line-height: 1.25;
-    font-size: 2.2vw;
+    font-size: 19px;
     font-weight: bold;
 }
 
