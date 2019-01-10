@@ -4,12 +4,14 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title, Drawer, Cont
 import CarouselDetailShoe from './../../Component/Carousel/CarouselDetailShoe';
 import BottomNavigationDetailShoe from './../../Component/Common/BottomNavigationDetailShoe';
 import Slider from "react-native-slider";
+import StarRating from 'react-native-star-rating';
 
 
 class DetailShoe extends Component {
 
     state = {
-        chkBoxColor: [false, false, false, false, false],
+        chkBoxColor: [false, true, false, false, false],
+        chkBoxSize: [true, false, false, false, false, false, false, false, false, false],
     }
 
     onChangeColor(index) {
@@ -18,6 +20,13 @@ class DetailShoe extends Component {
         items[index] = !items[index];
         this.setState({
             chkBoxColor: items
+        })
+    }
+    onChangeSize(index) {
+        let items = [false, false, false, false, false, false, false, false, false, false];
+        items[index] = !items[index];
+        this.setState({
+            chkBoxSize: items
         })
     }
 
@@ -38,20 +47,76 @@ class DetailShoe extends Component {
                 <Content>
                     <CarouselDetailShoe />
                     <View style={{ marginTop: 5 }}>
-                        <Text style={{ fontSize: 15, marginLeft: 55 }}>Giày nam</Text>
+                        <Text style={{ fontSize: 15, marginLeft: 55, marginBottom: 5 }}>Giày nam</Text>
 
                         <Text style={styles.text}>Adidas PW SOLAR HUMNDO</Text>
                         <Text style={styles.price}>$340</Text>
                     </View>
                     <View style={{ marginTop: 5 }}>
                         <Text style={{ fontSize: 15, marginLeft: 55 }}>Chọn size</Text>
+                        <View style={styles.container}>
+                            <ListItem style={{ width: '50%', borderBottomWidth: 0, marginBottom: -18 }}>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(0)}>
+                                    <Badge style={this.state.chkBoxSize[0] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[0] ? styles.textSize2 : styles.textSize1}>35</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(1)}>
+                                    <Badge style={this.state.chkBoxSize[1] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[1] ? styles.textSize2 : styles.textSize1}>36</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(2)}>
+                                    <Badge style={this.state.chkBoxSize[2] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[2] ? styles.textSize2 : styles.textSize1}>37</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(3)}>
+                                    <Badge style={this.state.chkBoxSize[3] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[3] ? styles.textSize2 : styles.textSize1}>38</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(4)}>
+                                    <Badge style={this.state.chkBoxSize[4] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[4] ? styles.textSize2 : styles.textSize1}>39</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                            </ListItem>
+                            <ListItem style={{ width: '50%', borderBottomWidth: 0 }}>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(5)}>
+                                    <Badge style={this.state.chkBoxSize[5] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[5] ? styles.textSize2 : styles.textSize1}>40</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(6)}>
+                                    <Badge style={this.state.chkBoxSize[6] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[6] ? styles.textSize2 : styles.textSize1}>41</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(7)}>
+                                    <Badge style={this.state.chkBoxSize[7] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[7] ? styles.textSize2 : styles.textSize1}>42</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(8)}>
+                                    <Badge style={this.state.chkBoxSize[8] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[8] ? styles.textSize2 : styles.textSize1}>43</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeSize(9)}>
+                                    <Badge style={this.state.chkBoxSize[9] ? styles.badgeSize2 : styles.badgeSize1}>
+                                        <Text style={this.state.chkBoxSize[9] ? styles.textSize2 : styles.textSize1}>44</Text>
+                                    </Badge>
+                                </TouchableOpacity>
+                            </ListItem>
+                        </View>
                     </View>
                     <View style={{ marginTop: 5 }}>
                         <Text style={{ fontSize: 15, marginLeft: 55 }}>Chọn màu</Text>
                         <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
                             <ListItem style={{ margin: 'auto', width: '50%', borderBottomWidth: 0 }}>
                                 <TouchableOpacity style={{ margin: 2 }} onPress={() => this.onChangeColor(0)}>
-                                    <Badge style={{ backgroundColor: '#555', height: 32, width: 32, }}>
+                                    <Badge style={{ backgroundColor: 'gray', height: 32, width: 32, }}>
                                         {
                                             this.state.chkBoxColor[0] && (
                                                 <Icon name="ios-checkmark" style={{ fontSize: 30, color: "#4494D5", lineHeight: 30, textAlign: 'center' }} />
@@ -98,12 +163,24 @@ class DetailShoe extends Component {
                             </ListItem>
                         </View>
                     </View>
+                    <View style={{width: 160}}>
+                        <StarRating
+                            starSize={31}
+                            disabled={true}
+                            maxStars={5}
+                            rating={5}
+                            fullStarColor={'#FADB14'}
+                        />
+                    </View>
                     <View style={{ margin: 3 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Đánh giá sản phẩm</Text>
                         <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Size</Text>
                         <Slider
+                            thumbTintColor='#C4F9F4'
+                            minimumTrackTintColor='#C4F9F4'
+                            trackStyle={{ backgroundColor: 'white', borderWidth: 0.5, borderColor: '#BED4F6' }}
                             disabled={true}
-                            value={5}
+                            value={45}
                             minimumValue={0}
                             maximumValue={50}
                         />
@@ -115,8 +192,11 @@ class DetailShoe extends Component {
                     <View style={{ margin: 3 }}>
                         <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Sự thoải mái</Text>
                         <Slider
+                            thumbTintColor='#C4F9F4'
+                            minimumTrackTintColor='#C4F9F4'
+                            trackStyle={{ backgroundColor: 'white', borderWidth: 0.5, borderColor: '#BED4F6' }}
                             disabled={true}
-                            value={5}
+                            value={30}
                             minimumValue={0}
                             maximumValue={50}
                         />
@@ -125,11 +205,14 @@ class DetailShoe extends Component {
                             <Col><Text style={{ textAlign: 'right', fontSize: 12 }}>RẤT THOẢI MÁI</Text></Col>
                         </Grid>
                     </View>
-                    <View style={{ margin: 3,}}>
+                    <View style={{ margin: 3, }}>
                         <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Độ bền</Text>
                         <Slider
+                            thumbTintColor='#C4F9F4'
+                            minimumTrackTintColor='#C4F9F4'
+                            trackStyle={{ backgroundColor: 'white', borderWidth: 0.5, borderColor: '#BED4F6' }}
                             disabled={true}
-                            value={5}
+                            value={35}
                             minimumValue={0}
                             maximumValue={50}
                         />
@@ -138,7 +221,7 @@ class DetailShoe extends Component {
                             <Col><Text style={{ textAlign: 'right', fontSize: 12 }}>RẤT BỀN</Text></Col>
                         </Grid>
                     </View>
-                    <View style={{ margin: 5,  borderTopColor: 'black', borderTopWidth: 0.45  }}>
+                    <View style={{ margin: 5, borderTopColor: 'black', borderTopWidth: 0.45 }}>
                         <Text style={{ fontSize: 15 }}>
                             The Nike Air Max 95 made its mark
                             as the first shoe to include visible Nike Air cushioning in the forefoot.
@@ -160,6 +243,23 @@ export default DetailShoe;
 
 const styles = StyleSheet.create({
 
+    textSize1: {
+        color: 'black', lineHeight: 30, textAlign: 'center', fontSize: 15
+    },
+    textSize2: {
+        color: '#096DD9', lineHeight: 30, textAlign: 'center', fontSize: 15
+    },
+    badgeSize1: {
+        backgroundColor: 'white', borderColor: '#d9d9d9', borderWidth: 1, height: 32, width: 32,
+    },
+    badgeSize2: {
+        backgroundColor: 'white', borderColor: '#096DD9', borderWidth: 1, height: 32, width: 32,
+    },
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        flexDirection: 'column', alignItems: 'center'
+    },
     text: {
         fontSize: 18,
         fontWeight: '400',

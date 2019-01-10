@@ -44,15 +44,15 @@ export default class Login extends Component {
                         <CardItem footer style={{ paddingTop: 20, paddingBottom: 20 }}>
                             <Left>
                                 <Text style={styles.baseText}>Chưa có tài khoản?</Text>
-                                <Text onPress={this.gotoRegister} style={[styles.baseText, { color: 'red' }]}>Đăng ký</Text>
+                                <Text onPress={this.gotoRegister} style={[styles.baseText, { color: '#51B0FF' }]}>Đăng ký</Text>
                             </Left>
                             <Right>
                                 <CardItem>
-                                    <Text style={styles.baseText}>Quên mật khẩu ?</Text>
+                                    <Text style={[styles.baseText, { color: '#51B0FF' }]}>Quên mật khẩu ?</Text>
                                 </CardItem>
                             </Right>
                         </CardItem>
-                        <Button block primary>
+                        <Button block style={{backgroundColor: '#40A9FF'}}>
                             <Text>Đăng nhập</Text>
                         </Button>
                     </Card>

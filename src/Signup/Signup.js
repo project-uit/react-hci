@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import { Row, Checkbox } from 'antd';
-import { Col } from 'antd';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Button as ButtonAnt } from 'antd';
+import { Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
 class SignupForm extends Component {
 
@@ -56,7 +56,7 @@ class LoginForm extends Component {
                     </FormGroup>
                     <br />
                     <p>QUÊN TÀI KHOẢN ?</p>
-                    <Button className='button' size="lg" block>ĐĂNG NHẬP</Button>
+                    <ButtonAnt type="primary" htmlType="submit" className="btnLogin">Đăng nhập</ButtonAnt>
                 </Form>
             </div>
         );

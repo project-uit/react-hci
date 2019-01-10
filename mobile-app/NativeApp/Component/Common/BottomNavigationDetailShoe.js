@@ -12,6 +12,9 @@ class BottomNavigationDetailShoe extends Component {
     gotoCart = () => {
         this.props.navigation.navigate('Cart')
     }
+    gotoSupport = () => {
+        this.props.navigation.navigate('Support')
+    }
     render() {
         return (
             <FooterTab style={{ backgroundColor: '#0F0F0F' }}>
@@ -33,7 +36,7 @@ class BottomNavigationDetailShoe extends Component {
                     <Badge><Text>2</Text></Badge>
                     <Icon name="cart" style={{ color: 'white' }} />
                 </Button>
-                <Button vertical style={{
+                <Button vertical onPress={this.gotoSupport} style={{
                     borderColor: 'white',
                     borderLeftWidth: 0.45,
                 }}>

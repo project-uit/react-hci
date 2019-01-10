@@ -548,6 +548,7 @@ class ShoeDetails extends Component {
                 {/* Su thoai mai */}
                 <p className="font-weight-bold h5 mt-3">Sự thoải mái</p>
                 <RangeSlider
+               
                   step={2}
                   disabled
                   defaultValue={95}

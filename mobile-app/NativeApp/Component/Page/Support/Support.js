@@ -10,7 +10,7 @@ export default class Support extends Component {
     render() {
         return (
             <Container>
-                <Header hasTabs>
+                <Header hasTabs style={{ backgroundColor: '#0F0F0F' }}>
                     <Left>
                         <Button transparent onPress={() => this.props.navigation.goBack()}>
                             <Icon name='arrow-back' />
@@ -54,7 +54,7 @@ export default class Support extends Component {
                     <View style={{ padding: 10 }}>
                         <Textarea rowSpan={5} bordered placeholder="Nhập nội dung" />
                         <Text></Text>
-                        <Button block primary >
+                        <Button block style={{backgroundColor: '#40A9FF'}} >
                             <Text>Gửi</Text>
                             <Icon name='send' />
                         </Button>

@@ -51,10 +51,10 @@ export default class Cart extends Component {
                 <Text>Thành tiền</Text>
               </Left>
               <Right>
-                <Text>1960$</Text>
-                <Text>5$</Text>
+                <Text>$1960</Text>
+                <Text>$5</Text>
                 <Text>5%</Text>
-                <Text>1866.75$</Text>
+                <Text>$1866.75</Text>
               </Right>
             </View>
             <CardItem footer>
@@ -66,7 +66,7 @@ export default class Cart extends Component {
           </Card>
           <Card>
             <CardItem header bordered style={{ backgroundColor: 'black' }}>
-              <Text style={styles.titleText}>Sản phẩm đã thêm</Text>
+              <Text style={styles.titleText}>Giỏ hàng</Text>
             </CardItem>
             <View style={{ flex: 1 }}>
               <List>
@@ -76,9 +76,9 @@ export default class Cart extends Component {
                   </Left>
                   <Body>
                     <Text>Yeezy Boost 350 V2 </Text>
-                    <Text note numberOfLines={1}>Màu: Cblack/Red/Cblack</Text>
-                    <Text note numberOfLines={1}>Size: 9</Text>
-                    <Text note numberOfLines={1}>Giá: 950$</Text>
+                    <Text note numberOfLines={1}>Màu: black</Text>
+                    <Text note numberOfLines={1}>Size: 37</Text>
+                    <Text note numberOfLines={1}>Giá: $220</Text>
                     <Text note numberOfLines={1}>Số lượng:</Text>
                     <NumericInput
                       initValue={1}
@@ -95,7 +95,7 @@ export default class Cart extends Component {
                     <Right style={{
                       justifyContent: 'center', alignItems: 'center'
                     }}>
-                      <Text>980$</Text>
+                      <Text>$980</Text>
                     </Right>
                   </Right>
                 </ListItem>
@@ -105,9 +105,9 @@ export default class Cart extends Component {
                   </Left>
                   <Body>
                     <Text>Yeezy Boost 350 V2 </Text>
-                    <Text note numberOfLines={1}>Màu: Cblack/Red/Cblack</Text>
-                    <Text note numberOfLines={1}>Size: 9</Text>
-                    <Text note numberOfLines={1}>Giá: 950$</Text>
+                    <Text note numberOfLines={1}>Màu: black</Text>
+                    <Text note numberOfLines={1}>Size: 39</Text>
+                    <Text note numberOfLines={1}>Giá: $220</Text>
                     <Text note numberOfLines={1}>Số lượng:</Text>
                     <NumericInput
                       initValue={1}
@@ -124,7 +124,7 @@ export default class Cart extends Component {
                     <Right style={{
                       justifyContent: 'center', alignItems: 'center'
                     }}>
-                      <Text>980$</Text>
+                      <Text>$980</Text>
                     </Right>
                   </Right>
                 </ListItem>

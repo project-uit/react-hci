@@ -45,7 +45,6 @@ class ListShoe extends Component {
                         </Button>
                         <Button transparent onPress={() => this.openDrawer()}>
                             <Icon type="FontAwesome" name="filter" style={{ color: 'white' }} />
-
                         </Button>
                     </Right>
                 </Header>

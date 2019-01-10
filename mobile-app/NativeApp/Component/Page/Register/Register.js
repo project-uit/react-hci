@@ -54,11 +54,11 @@ export default class Register extends Component {
                             <Right>
                                 <CardItem>
                                     <Text style={styles.baseText}>Đã có tài khoản? </Text>
-                                    <Text onPress={this.gotoProfile} style={[styles.baseText, { color: 'red' }]}>Đăng nhập</Text>
+                                    <Text onPress={this.gotoProfile} style={[styles.baseText, { color: '#51B0FF' }]}>Đăng nhập</Text>
                                 </CardItem>
                             </Right>
                         </CardItem>
-                        <Button block primary onPress={this.gotoProfile}>
+                        <Button block style={{backgroundColor: '#40A9FF'}} onPress={this.gotoProfile}>
                             <Text>Đăng ký</Text>
                         </Button>
                     </Card>

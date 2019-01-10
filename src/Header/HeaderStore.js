@@ -96,7 +96,7 @@ class HeaderStore extends Component {
     </Row>
     )
     const headerSmallDevice = (
-      <div style={{ backgroundColor: 'black' }}>
+      <div style={{ backgroundColor: 'black',}}>
         <Row>
           <Col xs={12}>
             <Link to="/trang-chu" className="btn btn-dark"><Icon type="home" theme="filled" /></Link>
