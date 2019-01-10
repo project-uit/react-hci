@@ -13,6 +13,7 @@ import ListShoe from './List/ListShoe';
 import ShoeDetails from './ShoeDetails/shoeDetails';
 import Checkout from './Checkout/Checkout';
 import Signup from './Signup/Signup';
+import ShoeCart from './ShoeCart/shoeCart';
 class App extends Component {
 
 
@@ -45,6 +46,11 @@ class App extends Component {
             exact
             path='/dang-ky'
             component={Signup}
+          />
+          <Route
+            exact
+            path='/cart'
+            component={ShoeCart}
           />
         </Switch>
 

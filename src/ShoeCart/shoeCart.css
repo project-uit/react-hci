@@ -1,0 +1,116 @@
+/* --Slick slider-- */
+.slide-slick-item{
+    width: 99% !important;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    border-radius: 15px;
+}
+
+.slide-slick-item a{
+    padding: 0px !important;
+}
+
+.slide-slick-item img{
+    min-height: 200px;
+    max-height: 200px;
+    padding: 2px !important;
+    border: 1px solid #C4C4C4;
+    border-radius: 15px;
+}
+
+/* Container holding the image and the text */
+.image-container {
+    position: relative;
+    text-align: center;
+    color: #000000;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #C4C4C4;
+    font-family: 'Enriqueta', arial, serif;
+    line-height: 1.25;
+    font-size: 2.2vw;
+    font-weight: bold;
+  }
+
+/* --End Slick slider-- */
+
+.summary-container{
+    padding: 10px 50px 30px 50px;
+    background-color: #000000; 
+}
+
+.sumary-table{
+    margin-left: -3%;  
+    color: #ffffff; 
+    font-size: 20px;
+}
+
+.sumary-table th,td{
+    border: 0px !important; 
+}
+
+.orange-long{
+    background-color: #DA9454 !important; 
+    border-color: #DA9454 !important;
+    width: 100%;
+}
+
+.green-long{
+    background-color: #009688 !important; 
+    border-color: #009688 !important;
+    width: 100%;
+}
+
+@media only screen and (max-width: 980px) {
+    .slide-slick-item img{
+        min-height: 150px;
+        max-height: 150px;
+        padding: 2px !important;
+        border: 1px solid #C4C4C4;
+        border-radius: 15px;
+    }
+  }
+
+.cart{
+    margin-right: 30px;  
+    background-color: #EEEEEE;
+}
+
+.cart-header{
+    padding: 20px;
+    background-color: #C4C4C4;
+}
+
+.cart-body{
+    padding: 0px 0px 20px 0px;
+    margin-top: -15px;
+}
+
+.card-purchase{
+    margin: 15px 15px 15px 15px;
+    border-top: 2px solid #fff;
+}
+
+.shoe-name{
+    font-family: 'Righteous', cursive;
+    line-height: 1.25;
+    font-size: 2.2vw;
+    font-weight: bold;
+}
+
+.delete-button{
+    width: 50px !important;
+}
+
+.round-circle{ 
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+}
