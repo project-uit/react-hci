@@ -31,18 +31,18 @@ class Home extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 3000,
+            autoplaySpeed: 3500,
             className: "slides",
         };
         const settings2 = {
             dots: false,
             infinite: true,
-            speed: 800,
+            speed: 1500,
             arrows: true,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 5500,
             className: "slides",
         };
         return (
@@ -82,7 +82,7 @@ class Home extends Component {
                                     </Col>
                                 </Row>
                             </div>
-                            <div className="hand-pointer">
+                            <div className="hand-pointer" onClick={this.gotoDetailShoe}>
                                 <Col xs={12}>
                                     <img src="/Images/805531_01.jpg" alt="" className="img-carousel" />
                                 </Col>

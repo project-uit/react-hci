@@ -16,7 +16,6 @@ import Signup from './Signup/Signup';
 import ShoeCart from './ShoeCart/shoeCart';
 class App extends Component {
 
-
   render() {
 
     return (

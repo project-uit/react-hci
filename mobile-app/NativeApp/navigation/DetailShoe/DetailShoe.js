@@ -5,7 +5,7 @@ import CarouselDetailShoe from './../../Component/Carousel/CarouselDetailShoe';
 import BottomNavigationDetailShoe from './../../Component/Common/BottomNavigationDetailShoe';
 import Slider from "react-native-slider";
 import StarRating from 'react-native-star-rating';
-
+import ReadMore from 'react-native-read-more-text';
 
 class DetailShoe extends Component {
 
@@ -28,6 +28,24 @@ class DetailShoe extends Component {
         this.setState({
             chkBoxSize: items
         })
+    }
+    _renderTruncatedFooter = (handlePress) => {
+        return (
+            <Text style={{ marginTop: 5, color: '#40A9FF', textAlign: 'right' }} onPress={handlePress}>
+                Hiển thị thêm
+          </Text>
+        );
+    }
+
+    _renderRevealedFooter = (handlePress) => {
+        return (
+            <Text style={{ marginTop: 5, color: '#40A9FF', textAlign: 'right' }} onPress={handlePress}>
+                Ẩn
+          </Text>
+        );
+    }
+    _handleTextReady = () => {
+        // ...
     }
 
     render() {
@@ -163,7 +181,7 @@ class DetailShoe extends Component {
                             </ListItem>
                         </View>
                     </View>
-                    <View style={{width: 160}}>
+                    <View style={{ width: 160, marginLeft: 15, marginRight: 15 }}>
                         <StarRating
                             starSize={31}
                             disabled={true}
@@ -172,7 +190,7 @@ class DetailShoe extends Component {
                             fullStarColor={'#FADB14'}
                         />
                     </View>
-                    <View style={{ margin: 3 }}>
+                    <View style={{ margin: 15 }}>
                         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Đánh giá sản phẩm</Text>
                         <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Size</Text>
                         <Slider
@@ -189,7 +207,7 @@ class DetailShoe extends Component {
                             <Col><Text style={{ textAlign: 'right' }}>RUNS BIG</Text></Col>
                         </Grid>
                     </View>
-                    <View style={{ margin: 3 }}>
+                    <View style={{ marginLeft: 15, marginRight: 15 }}>
                         <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Sự thoải mái</Text>
                         <Slider
                             thumbTintColor='#C4F9F4'
@@ -205,7 +223,7 @@ class DetailShoe extends Component {
                             <Col><Text style={{ textAlign: 'right', fontSize: 12 }}>RẤT THOẢI MÁI</Text></Col>
                         </Grid>
                     </View>
-                    <View style={{ margin: 3, }}>
+                    <View style={{ margin: 15 }}>
                         <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Độ bền</Text>
                         <Slider
                             thumbTintColor='#C4F9F4'
@@ -221,13 +239,19 @@ class DetailShoe extends Component {
                             <Col><Text style={{ textAlign: 'right', fontSize: 12 }}>RẤT BỀN</Text></Col>
                         </Grid>
                     </View>
-                    <View style={{ margin: 5, borderTopColor: 'black', borderTopWidth: 0.45 }}>
-                        <Text style={{ fontSize: 15 }}>
-                            The Nike Air Max 95 made its mark
-                            as the first shoe to include visible Nike Air cushioning in the forefoot.
-                            The Nike Air Max 95 SE Men's Shoe energises the iconic design with updated
-                            materials in a variety of textures and accents.
+                    <View style={{ marginLeft: 15, marginRight: 15, marginBottom: 20, borderTopColor: 'black', borderTopWidth: 0.45 }}>
+                        <ReadMore
+                            numberOfLines={2}
+                            renderTruncatedFooter={this._renderTruncatedFooter}
+                            renderRevealedFooter={this._renderRevealedFooter}
+                            onReady={this._handleTextReady}>
+
+                            <Text style={{ fontSize: 15 }}>
+                                Nike Roshe đã ghi dấu ấn khi trở thành đôi giày đầu tiên
+                               có đệm ở bàn chân trước. Nike Roshe nam
+                               thiết kế mang tính mạnh mẽ và trẻ trung trong một loạt các kết cấu và điểm nhấn.
                          </Text>
+                        </ReadMore>
                     </View>
                 </Content>
                 <Footer style={{ backgroundColor: '#0F0F0F' }}>

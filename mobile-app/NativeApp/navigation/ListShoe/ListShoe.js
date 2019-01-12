@@ -20,6 +20,7 @@ class ListShoe extends Component {
     toSearchListShoe = () => {
         this.props.navigation.navigate('SearchListShoe')
     }
+
     render() {
 
         return (

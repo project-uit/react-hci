@@ -2,6 +2,7 @@
     background-color: #e6e6e6;
     border-color: #adadad;
     color: #333;
+    text-align: center;
   }
   .slick-prev {
     z-index: 1;
@@ -129,7 +130,7 @@
   }
 
 .comment{
-    border: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
     margin-bottom: 5px;
     border-radius: 5px;  
 }

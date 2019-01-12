@@ -395,31 +395,31 @@ class ShoeDetails extends Component {
                                 defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 0)}
                               />
-                              35
-                                                            </label>
+                              <span style={{ marginTop: 2 }}>35</span>
+                            </label>
                             <label className={this.state.chkBoxSize[1]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 1)}
                               />
-                              36
-                                                            </label>
+                              <span style={{ marginTop: 2 }}>36</span>
+                            </label>
                             <label className={this.state.chkBoxSize[2]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 2)}
                               />
-                              37
-                                                            </label>
+                              <span style={{ marginTop: 2 }}>37</span>
+                            </label>
                             <label className={this.state.chkBoxSize[3]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 3)}
                               />
-                              38
+                              <span style={{marginTop: 2}}>38</span>
                                                             </label>
                             <label className={this.state.chkBoxSize[4]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 4)}
                               />
-                              39
+                               <span style={{marginTop: 2}}>39</span>
                                                             </label>
                           </div>
                           <div className="size-row">
@@ -427,27 +427,27 @@ class ShoeDetails extends Component {
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 5)}
                               />
-                              40
+                              <span style={{marginTop: 2}}>40</span>
                                                             </label>
                             <label className={this.state.chkBoxSize[6]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 6)} />
-                              41
+                              <span style={{marginTop: 2}}>41</span>
                                                             </label>
                             <label className={this.state.chkBoxSize[7]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 7)} />
-                              42
+                              <span style={{marginTop: 2}}>42</span>
                                                             </label>
                             <label className={this.state.chkBoxSize[8]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 8)} />
-                              43
+                              <span style={{marginTop: 2}}>43</span>
                                                             </label>
                             <label className={this.state.chkBoxSize[9]}>
                               <input type="checkbox" style={{ display: 'none' }} defaultChecked={false}
                                 onChange={(e) => this.handleChangeChk(e, 9)} />
-                              44
+                              <span style={{marginTop: 2}}>44</span>
                                                             </label>
                           </div>
                         </Col>
@@ -517,9 +517,9 @@ class ShoeDetails extends Component {
 
                 <Row className="mt-3 pl-3 text-justify">
                   <p className="font-weight-bold">
-                    The Nike Roshe made its mark as the first shoe to include visible
-                    Nike Roshe cushioning in the forefoot. The Nike Roshe Men's
-                    Shoe energises the iconic design with updated materials in a variety of textures and accents.
+                    Nike Roshe đã ghi dấu ấn khi trở thành đôi giày đầu tiên
+                       có đệm ở bàn chân trước. Nike Roshe nam
+                       thiết kế mang tính mạnh mẽ và trẻ trung trong một loạt các kết cấu và điểm nhấn.
                     <br></br>
                     *Style: AJ2018-700
                   </p>
